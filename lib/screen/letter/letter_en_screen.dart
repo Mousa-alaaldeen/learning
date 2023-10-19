@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:learning/component/styles.dart';
@@ -15,34 +16,33 @@ class LetterEnScreen extends StatefulWidget {
 
 class _NumberScreenState extends State<LetterEnScreen> {
  final List<NumberModel> letter = [
-    NumberModel('asset/images/number.png', 'A', 'Apple'),
-    NumberModel('asset/images/number.png', 'B', 'Banana'),
-    NumberModel('asset/images/number.png', 'C', 'Cherry'),
-    NumberModel('asset/images/number.png', 'D', 'Date'),
-    NumberModel('asset/images/number.png', 'E', 'Eggplant'),
-    NumberModel('asset/images/number.png', 'F', 'Fig'),
-    NumberModel('asset/images/number.png', 'G', 'Grapes'),
-    NumberModel('asset/images/number.png', 'H', 'Honeydew'),
-    NumberModel('asset/images/number.png', 'I', 'Ice Cream'),
-    NumberModel('asset/images/number.png', 'J', 'Jellyfish'),
-    NumberModel('asset/images/number.png', 'K', 'Kiwi'),
-    NumberModel('asset/images/number.png', 'L', 'Lemon'),
-    NumberModel('asset/images/number.png', 'M', 'Mango'),
-    NumberModel('asset/images/number.png', 'N', 'Nectarine'),
-    NumberModel('asset/images/number.png', 'O', 'Orange'),
-    NumberModel('asset/images/number.png', 'P', 'Peach'),
-    NumberModel('asset/images/number.png', 'Q', 'Quince'),
-    NumberModel('asset/images/number.png', 'R', 'Raspberry'),
-    NumberModel('asset/images/number.png', 'S', 'Strawberry'),
-    NumberModel('asset/images/number.png', 'T', 'Tomato'),
-    NumberModel('asset/images/number.png', 'U', 'Umbrella'),
-    NumberModel('asset/images/number.png', 'V', 'Vanilla'),
-    NumberModel('asset/images/number.png', 'W', 'Watermelon'),
-    NumberModel('asset/images/number.png', 'X', 'X-ray'),
-    NumberModel('asset/images/number.png', 'Y', 'Yogurt'),
-    NumberModel('asset/images/number.png', 'Z', 'Zucchini'),
+    NumberModel('audio/one.mp3','asset/images/number.png', 'B', 'Banana'),
+    NumberModel('audio/one.mp3','asset/images/number.png', 'C', 'Cherry'),
+    NumberModel('url','asset/images/number.png', 'D', 'Date'),
+    NumberModel('url','asset/images/number.png', 'E', 'Eggplant'),
+    NumberModel('url','asset/images/number.png', 'F', 'Fig'),
+    NumberModel('url','asset/images/number.png', 'G', 'Grapes'),
+    NumberModel('url','asset/images/number.png', 'H', 'Honeydew'),
+    NumberModel('url','asset/images/number.png', 'I', 'Ice Cream'),
+    NumberModel('url','asset/images/number.png', 'J', 'Jellyfish'),
+    NumberModel('url','asset/images/number.png', 'K', 'Kiwi'),
+    NumberModel('url','asset/images/number.png', 'L', 'Lemon'),
+    NumberModel('url','asset/images/number.png', 'M', 'Mango'),
+    NumberModel('url','asset/images/number.png', 'N', 'Nectarine'),
+    NumberModel('url','asset/images/number.png', 'O', 'Orange'),
+    NumberModel('url','asset/images/number.png', 'P', 'Peach'),
+    NumberModel('url','asset/images/number.png', 'Q', 'Quince'),
+    NumberModel('url','asset/images/number.png', 'R', 'Raspberry'),
+    NumberModel('url','asset/images/number.png', 'S', 'Strawberry'),
+    NumberModel('url','asset/images/number.png', 'T', 'Tomato'),
+    NumberModel('url','asset/images/number.png', 'U', 'Umbrella'),
+    NumberModel('url','asset/images/number.png', 'V', 'Vanilla'),
+    NumberModel('url','asset/images/number.png', 'W', 'Watermelon'),
+    NumberModel('url','asset/images/number.png', 'X', 'X-ray'),
+    NumberModel('url','asset/images/number.png', 'Y', 'Yogurt'),
+    NumberModel('url','asset/images/number.png', 'Z', 'Zucchini'),
 ];
-
+ 
 
   @override
   Widget build(BuildContext context) {

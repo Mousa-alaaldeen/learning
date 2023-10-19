@@ -8,8 +8,10 @@ class BuildListTile extends StatelessWidget {
   final String subtitle;
   final String images;
   final String title;
+  final Function()? url;
   const BuildListTile({
     Key? key,
+    this.url,
     required this.subtitle,
     required this.images,
     required this.title,
@@ -17,7 +19,7 @@ class BuildListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AudioPlayer audioPlayer = AudioPlayer();
+    final player = AudioPlayer();
     return SizedBox(
       height: 200,
       child: Row(
@@ -49,14 +51,10 @@ class BuildListTile extends StatelessWidget {
               Icons.play_arrow,
               size: 40,
             ),
-            onPressed: () async {
-              await audioPlayer.play(AssetSource('sounds/one.mp3'));
-            },
+            onPressed:url,
           ),
         ],
       ),
     );
   }
 }
-
-Future<void> playSound() async {}

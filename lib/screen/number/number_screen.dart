@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:learning/component/app_audio.dart';
 import 'package:learning/component/app_images.dart';
 import 'package:learning/component/styles.dart';
 import 'package:learning/component/widget/build_list_tile.dart';
@@ -16,17 +18,18 @@ class NumberScreen extends StatefulWidget {
 
 class _NumberScreenState extends State<NumberScreen> {
   final List<NumberModel> numbers = [
-    NumberModel(AppImages.one, '١', 'واحد'),
-    NumberModel(AppImages.tow, '٢', 'اثنان'),
-    NumberModel(AppImages.three, '٣', 'ثلاثة'),
-    NumberModel(AppImages.four, '٤', 'أربعة'),
-    NumberModel(AppImages.five, '٥', 'خمسة'),
-    NumberModel(AppImages.six, '٦', 'ستة'),
-    NumberModel(AppImages.seven, '٧', 'سبعة'),
-    NumberModel(AppImages.eigth, '٨', 'ثمانية'),
-    NumberModel(AppImages.nine, '٩', 'تسعة'),
-    NumberModel(AppImages.ten, '١٠', 'عشرة'),
+    NumberModel(AppOudio.ONE_AR, AppImages.one, '١', 'واحد'),
+    NumberModel(AppOudio.TOW_AR, AppImages.tow, '٢', 'اثنان'),
+    NumberModel(AppOudio.THREE_AR, AppImages.three, '٣', 'ثلاثة'),
+    NumberModel(AppOudio.FOUR_AR, AppImages.four, '٤', 'أربعة'),
+    NumberModel(AppOudio.FIVE_AR, AppImages.five, '٥', 'خمسة'),
+    NumberModel(AppOudio.SIX_AR, AppImages.six, '٦', 'ستة'),
+    NumberModel(AppOudio.SEVEN_AR, AppImages.seven, '٧', 'سبعة'),
+    NumberModel(AppOudio.EIGTH_AR, AppImages.eigth, '٨', 'ثمانية'),
+    NumberModel(AppOudio.NINE_AR, AppImages.nine, '٩', 'تسعة'),
+    NumberModel(AppOudio.TEN_AR, AppImages.ten, '١٠', 'عشرة'),
   ];
+  final player = AudioPlayer();
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +69,12 @@ class _NumberScreenState extends State<NumberScreen> {
                       subtitle: numbers[index].subtitle,
                       images: numbers[index].images,
                       title: numbers[index].title,
+                      url: () async {
+                        if (player.state == PlayerState.playing) {
+                          await player.stop();
+                        }
+                        await player.play(AssetSource(numbers[index].oudio!));
+                      },
                     ),
                   ),
                 ),
@@ -75,5 +84,11 @@ class _NumberScreenState extends State<NumberScreen> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    player.stop();
+    super.dispose();
   }
 }

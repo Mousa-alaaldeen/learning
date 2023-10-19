@@ -30,7 +30,8 @@ environment:
 dependencies:
   animation_list: ^2.2.1
   animations: ^2.0.8
-  audioplayers: ^5.2.0
+  assets_audio_player: ^3.1.1
+  audioplayers: ^3.0.1
   cupertino_icons: ^1.0.2
   drawing_page: ^0.0.5
   flutter:
@@ -39,14 +40,15 @@ dependencies:
   flutter_staggered_animations: ^1.1.1
   lottie: ^2.6.0
   path_drawing: ^1.0.1
+  video_player: ^2.7.2
 
 dev_dependencies:
+  flutter_launcher_icons: "^0.13.1"
   flutter_lints: ^2.0.0
   flutter_localizations:
     sdk: flutter
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: "^0.13.1"
 
 flutter_launcher_icons:
   android: "launcher_icon"
@@ -76,11 +78,12 @@ flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
-    - asset/animation_json/
-    - asset/images/
-    - asset/sounds/
-    - asset/images/numbers/
-    - asset/images/letter_ar/
+    - assets/animation_json/
+    - assets/images/
+    - assets/audio/number/
+    - assets/video/
+    - assets/images/numbers/
+    - assets/images/letter_ar/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see
@@ -93,7 +96,7 @@ flutter:
   fonts:
     - family: Amiri
       fonts:
-        - asset: asset/fonts/Amiri-Bold.ttf
+        - asset: assets/fonts/Amiri-Bold.ttf
           weight: 700
           #       - asset: fonts/Schyler-Italic.ttf
           #         style: italic

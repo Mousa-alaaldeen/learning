@@ -133,34 +133,34 @@ class _MyHomePageState extends State<DrawingScreen> {
   int itemCount = 0;
 
   final List<NumberModel> letter = [
-    NumberModel(AppImages.ar1, 'أ', 'أسد'),
-    NumberModel(AppImages.ar2, 'ب', 'بطة'),
-    NumberModel(AppImages.ar3, 'ت', 'تمساح'),
-    NumberModel(AppImages.ar4, 'ث', 'ثعلب'),
-    NumberModel(AppImages.ar5, 'ج', 'جمل'),
-    NumberModel(AppImages.ar6, 'ح', 'حوت'),
-    NumberModel(AppImages.ar7, 'خ', 'خروف'),
-    NumberModel(AppImages.ar8, 'د', "ديك"),
-    NumberModel(AppImages.ar9, 'ذ', 'ذهب'),
-    NumberModel(AppImages.ar10, 'ر', "رمان"),
-    NumberModel(AppImages.ar11, 'ز', 'زرافة'),
-    NumberModel(AppImages.ar12, 'س', 'سمكة'),
-    NumberModel(AppImages.ar13, 'ش', 'شمس'),
-    NumberModel(AppImages.ar14, 'ص', 'صقر'),
-    NumberModel(AppImages.ar15, 'ض', 'ضفدع'),
-    NumberModel(AppImages.ar16, 'ط', 'طاووس'),
-    NumberModel(AppImages.ar17, 'ظ', 'ظبي'),
-    NumberModel(AppImages.ar18, 'ع', 'عقرب'),
-    NumberModel(AppImages.ar19, 'غ', 'غزال'),
-    NumberModel(AppImages.ar20, 'ف', 'فيل'),
-    NumberModel(AppImages.ar21, 'ق', 'قرد'),
-    NumberModel(AppImages.ar22, 'ك', 'كلب'),
-    NumberModel(AppImages.ar23, 'ل', 'ليمور'),
-    NumberModel(AppImages.ar24, 'م', 'ماعز'),
-    NumberModel(AppImages.ar25, 'ن', 'نمر'),
-    NumberModel(AppImages.ar26, 'ه', 'هدهد'),
-    NumberModel(AppImages.ar27, 'و', 'وحيد القرن'),
-    NumberModel(AppImages.ar28, 'ي', 'يعسوب'),
+    NumberModel('',AppImages.ar1, 'أ', 'أسد'),
+    NumberModel('',AppImages.ar2, 'ب', 'بطة'),
+    NumberModel('',AppImages.ar3, 'ت', 'تمساح'),
+    NumberModel('',AppImages.ar4, 'ث', 'ثعلب'),
+    NumberModel('',AppImages.ar5, 'ج', 'جمل'),
+    NumberModel('',AppImages.ar6, 'ح', 'حوت'),
+    NumberModel('',AppImages.ar7, 'خ', 'خروف'),
+    NumberModel('',AppImages.ar8, 'د', "ديك"),
+    NumberModel('',AppImages.ar9, 'ذ', 'ذهب'),
+    NumberModel('',AppImages.ar10, 'ر', "رمان"),
+    NumberModel('',AppImages.ar11, 'ز', 'زرافة'),
+    NumberModel('',AppImages.ar12, 'س', 'سمكة'),
+    NumberModel('',AppImages.ar13, 'ش', 'شمس'),
+    NumberModel('',AppImages.ar14, 'ص', 'صقر'),
+    NumberModel('',AppImages.ar15, 'ض', 'ضفدع'),
+    NumberModel('',AppImages.ar16, 'ط', 'طاووس'),
+    NumberModel('',AppImages.ar17, 'ظ', 'ظبي'),
+    NumberModel('',AppImages.ar18, 'ع', 'عقرب'),
+    NumberModel('',AppImages.ar19, 'غ', 'غزال'),
+    NumberModel('',AppImages.ar20, 'ف', 'فيل'),
+    NumberModel('',AppImages.ar21, 'ق', 'قرد'),
+    NumberModel('',AppImages.ar22, 'ك', 'كلب'),
+    NumberModel('',AppImages.ar23, 'ل', 'ليمور'),
+    NumberModel('',AppImages.ar24, 'م', 'ماعز'),
+    NumberModel('',AppImages.ar25, 'ن', 'نمر'),
+    NumberModel('',AppImages.ar26, 'ه', 'هدهد'),
+    NumberModel('',AppImages.ar27, 'و', 'وحيد القرن'),
+    NumberModel('',AppImages.ar28, 'ي', 'يعسوب'),
   ];
 
   @override
@@ -286,6 +286,7 @@ class _MyHomePageState extends State<DrawingScreen> {
                     onPressed: () {
                       if (itemCount != 27) {
                         itemCount++;
+                        
                       }
 
                       setState(() {});
@@ -310,6 +311,7 @@ class _MyHomePageState extends State<DrawingScreen> {
                       if (itemCount != 0) {
                         itemCount--;
                       }
+                      
                       setState(() {});
                     },
                     icon: const Icon(
