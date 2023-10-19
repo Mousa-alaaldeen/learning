@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unused_local_variable
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +51,7 @@ class BuildListTile extends StatelessWidget {
               Icons.play_arrow,
               size: 40,
             ),
-            onPressed:url,
+            onPressed: url,
           ),
         ],
       ),

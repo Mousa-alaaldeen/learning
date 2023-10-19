@@ -85,4 +85,41 @@ class AppImages {
   static const String ar26 = 'assets/images/letter_ar/26.jpg';
   static const String ar27 = 'assets/images/letter_ar/27.jpg';
   static const String ar28 = 'assets/images/letter_ar/28.jpg';
+
+  static const String bird_oudio =
+      'assets/images/animales/bird_oudio-removebg-preview.png';
+  static const String camel_oudio =
+      'assets/images/animales/camel_oudio-removebg-preview.png';
+  static const String cat_oudio =
+      'assets/images/animales/cat_oudio-removebg-preview.png';
+  static const String cheep_oudio =
+      'assets/images/animales/cheep_oudio-removebg-preview.png';
+  static const String chicken_oudio =
+      'assets/images/animales/chicken_oudio-removebg-preview.png';
+  static const String dog_oudio =
+      'assets/images/animales/dog_oudio-removebg-preview.png';
+  static const String elephant_oudio =
+      'assets/images/animales/elephant_oudio-removebg-preview.png';
+  static const String frog_oudio =
+      'assets/images/animales/frog_oudio-removebg-preview.png';
+  static const String lion_oudio =
+      'assets/images/animales/lion_oudio-removebg-preview.png';
+  static const String monkey_oudio =
+      'assets/images/animales/monkey_oudio-removebg-preview.png';
+  static const String donkey =
+      'assets/images/animales/donkey_oudio-removebg-preview.png';
+  static const String mouse =
+      'assets/images/animales/mouse_oudio-removebg-preview.png';
+  static const String wolf =
+      'assets/images/animales/wolf_oudio-removebg-preview.png';
+  static const String cow =
+      'assets/images/animales/cow_oudio-removebg-preview.png';
+  static const String duck =
+      'assets/images/animales/duck_oudio-removebg-preview.png';
+  static const String gorilla =
+      'assets/images/animales/gorilla_oudio-removebg-preview.png';
+  static const String bear =
+      'assets/images/animales/bear_oudio-removebg-preview.png';
+  static const String horse =
+      'assets/images/animales/horse_oudio-removebg-preview.png';
 }

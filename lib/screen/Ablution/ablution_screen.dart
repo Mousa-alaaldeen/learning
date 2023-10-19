@@ -14,7 +14,7 @@ class _AblutionScreenState extends State<AblutionScreen> {
   late VideoPlayerController controller;
   @override
   void initState() {
-    controller = VideoPlayerController.asset('asset/video/Ablution.mp4')
+    controller = VideoPlayerController.asset('assets/video/Ablution.mp4')
       ..initialize().then((value) {
         setState(() {});
       });
@@ -30,7 +30,7 @@ class _AblutionScreenState extends State<AblutionScreen> {
       body: Center(
           child: Container(
         child: VideoPlayer(
-            VideoPlayerController.asset('asset/video/Ablution.mp4')),
+            VideoPlayerController.asset('assets/video/Ablution.mp4')),
       )),
     ));
   }
