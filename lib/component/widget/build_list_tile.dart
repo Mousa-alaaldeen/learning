@@ -9,12 +9,14 @@ class BuildListTile extends StatelessWidget {
   final String images;
   final String title;
   final Function()? url;
+  final IconData icon;
   const BuildListTile({
     Key? key,
     this.url,
     required this.subtitle,
     required this.images,
     required this.title,
+    required this.icon,
   }) : super(key: key);
 
   @override
@@ -48,7 +50,7 @@ class BuildListTile extends StatelessWidget {
           Spacer(),
           IconButton(
             icon: Icon(
-              Icons.play_arrow,
+              icon,
               size: 40,
             ),
             onPressed: url,

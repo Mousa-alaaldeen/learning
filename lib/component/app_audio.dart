@@ -52,7 +52,7 @@ class AppOudio {
   static const String ar18 = 'audio/letter_ar/18.mp3';
   static const String ar19 = 'audio/letter_ar/19.mp3';
   static const String ar20 = 'audio/letter_ar/20.mp3';
-  static const String ar21 = 'audio/letter_ar/2.mp3';
+  static const String ar21 = 'audio/letter_ar/21.mp3';
   static const String ar22 = 'audio/letter_ar/22.mp3';
   static const String ar23 = 'audio/letter_ar/23.mp3';
   static const String ar24 = 'audio/letter_ar/24.mp3';

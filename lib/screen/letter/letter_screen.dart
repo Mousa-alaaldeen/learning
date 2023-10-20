@@ -31,22 +31,23 @@ class _NumberScreenState extends State<LetterScreen> {
     NumberModel(AppOudio.ar11, AppImages.flower, 'ز', 'زرافة'),
     NumberModel(AppOudio.ar12, AppImages.hour, 'س', 'سمكة'),
     NumberModel(AppOudio.ar13, AppImages.sun, 'ش', 'شمس'),
-    NumberModel(AppOudio.ar14, AppImages.hawk, 'ص', 'صقر'),
-    NumberModel(AppOudio.ar15, AppImages.frog, 'ض', 'ضفدع'),
+    NumberModel(AppOudio.ar14, AppImages.Hunter, 'ص', 'صقر'),
+    NumberModel(AppOudio.ar15, AppImages.officer, 'ض', 'ضفدع'),
     NumberModel(AppOudio.ar16, AppImages.child, 'ط', 'طاووس'),
     NumberModel(AppOudio.ar17, AppImages.nail, 'ظ', 'ظبي'),
     NumberModel(AppOudio.ar18, AppImages.EYE, 'ع', 'عقرب'),
-    NumberModel(AppOudio.ar19, AppImages.forest, 'غ', 'غزال'),
+    NumberModel(AppOudio.ar19, AppImages.GAR, 'غ', 'غزال'),
     NumberModel(AppOudio.ar20, AppImages.elephant, 'ف', 'فيل'),
     NumberModel(AppOudio.ar21, AppImages.moon, 'ق', 'قرد'),
-    NumberModel(AppOudio.ar22, AppImages.book, 'ك', 'كلب'),
-    NumberModel(AppOudio.ar23, AppImages.Lemon, 'ل', 'ليمور'),
+    NumberModel(AppOudio.ar22, AppImages.dog, 'ك', 'كلب'),
+    NumberModel(AppOudio.ar23, AppImages.meat, 'ل', 'ليمور'),
     NumberModel(AppOudio.ar24, AppImages.Mosque, 'م', 'ماعز'),
-    NumberModel(AppOudio.ar25, AppImages.star, 'ن', 'نمر'),
-    NumberModel(AppOudio.ar26, AppImages.Hoopoe, 'ه', 'هدهد'),
-    NumberModel(AppOudio.ar27, AppImages.flower1, 'و', 'وحيد القرن'),
+    NumberModel(AppOudio.ar25, AppImages.river, 'ن', 'نمر'),
+    NumberModel(AppOudio.ar26, AppImages.pyramid, 'ه', 'هدهد'),
+    NumberModel(AppOudio.ar27, AppImages.Face, 'و', 'وحيد القرن'),
     NumberModel(AppOudio.ar28, AppImages.hand, 'ي', 'يعسوب'),
   ];
+  int selectedAnimalIndex = -1;
   final player = AudioPlayer();
   @override
   Widget build(BuildContext context) {
@@ -88,11 +89,17 @@ class _NumberScreenState extends State<LetterScreen> {
                       title: '', //letter[index].title,
 
                       url: () async {
+                        setState(() {
+                          selectedAnimalIndex = index;
+                        });
                         if (player.state == PlayerState.playing) {
                           await player.stop();
                         }
                         await player.play(AssetSource(letter[index].oudio!));
                       },
+                      icon: selectedAnimalIndex == index
+                          ? Icons.replay
+                          : Icons.play_arrow,
                     ),
                   ),
                 ),
@@ -102,5 +109,11 @@ class _NumberScreenState extends State<LetterScreen> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    player.stop();
+    super.dispose();
   }
 }

@@ -31,6 +31,8 @@ class _NumberScreenState extends State<NumberScreen> {
   ];
   final player = AudioPlayer();
 
+  int selectedAnimalIndex = -1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,6 +68,9 @@ class _NumberScreenState extends State<NumberScreen> {
                     ),
                     margin: EdgeInsets.all(10),
                     child: BuildListTile(
+                      icon: selectedAnimalIndex == index
+                          ? Icons.replay
+                          : Icons.play_arrow,
                       subtitle: numbers[index].subtitle,
                       images: numbers[index].images,
                       title: numbers[index].title,

@@ -41,6 +41,8 @@ class _NumberScreenState extends State<LetterEnScreen> {
     NumberModel('url', 'asset/images/number.png', 'Y', 'Yogurt'),
     NumberModel('url', 'asset/images/number.png', 'Z', 'Zucchini'),
   ];
+  
+  int selectedAnimalIndex = -1;
 
   @override
   Widget build(BuildContext context) {
@@ -80,6 +82,9 @@ class _NumberScreenState extends State<LetterEnScreen> {
                       ),
                       margin: EdgeInsets.all(10),
                       child: BuildListTile(
+                        icon: selectedAnimalIndex == index
+                          ? Icons.replay
+                          : Icons.play_arrow,
                         subtitle: letter[index].subtitle,
                         images: letter[index].images,
                         title: letter[index].title,

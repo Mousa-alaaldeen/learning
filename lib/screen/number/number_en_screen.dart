@@ -16,17 +16,19 @@ class NumberEnScreen extends StatefulWidget {
 
 class _NumberEnScreenState extends State<NumberEnScreen> {
   final List<NumberModel> numbers = [
-    NumberModel('',AppImages.one, '1', 'one'),
-    NumberModel('',AppImages.tow, '2', 'two'),
-    NumberModel('',AppImages.three, '3', 'three'),
-    NumberModel('',AppImages.four,'4', 'four'),
-    NumberModel('',AppImages.five, '5', 'five'),
-    NumberModel('',AppImages.six, '6', 'six'),
-    NumberModel('',AppImages.seven, '7', 'seven'),
-    NumberModel('',AppImages.eigth, '8', 'eight'),
-    NumberModel('',AppImages.nine, '9', 'nine'),
-    NumberModel('',AppImages.ten, '10', 'ten'),
+    NumberModel('', AppImages.one, '1', 'one'),
+    NumberModel('', AppImages.tow, '2', 'two'),
+    NumberModel('', AppImages.three, '3', 'three'),
+    NumberModel('', AppImages.four, '4', 'four'),
+    NumberModel('', AppImages.five, '5', 'five'),
+    NumberModel('', AppImages.six, '6', 'six'),
+    NumberModel('', AppImages.seven, '7', 'seven'),
+    NumberModel('', AppImages.eigth, '8', 'eight'),
+    NumberModel('', AppImages.nine, '9', 'nine'),
+    NumberModel('', AppImages.ten, '10', 'ten'),
   ];
+
+  int selectedAnimalIndex = -1;
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +65,9 @@ class _NumberEnScreenState extends State<NumberEnScreen> {
                     ),
                     margin: EdgeInsets.all(10),
                     child: BuildListTile(
-                  
+                      icon: selectedAnimalIndex == index
+                          ? Icons.replay
+                          : Icons.play_arrow,
                       subtitle: numbers[index].subtitle,
                       images: numbers[index].images,
                       title: numbers[index].title,
@@ -77,6 +81,4 @@ class _NumberEnScreenState extends State<NumberEnScreen> {
       ),
     );
   }
-  
 }
- 
