@@ -141,10 +141,10 @@ class HomeScreen extends StatelessWidget {
                   onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => DrawingScreen (),
+                      builder: (context) => DrawingScreen(),
                     ),
                   ),
-                  color:Theme.of(context).colorScheme.inversePrimary,
+                  color: Theme.of(context).colorScheme.inversePrimary,
                   text: 'كتابة الحروف العربيه',
                   images: AppImages.education,
                 ),
@@ -155,12 +155,12 @@ class HomeScreen extends StatelessWidget {
                   onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => AblutionScreen(),
+                      builder: (context) => StoriesScreen(),
                     ),
                   ),
                   color: Color.fromRGBO(194, 222, 220, 10),
-                  text: 'الحروف الانجليزيه',
-                  images: AppImages.LETTER_EN,
+                  text: 'قصص باللغه الانجليزيه',
+                  images: AppImages.stories,
                 ),
               ],
             ),

@@ -38,8 +38,12 @@ dependencies:
     sdk: flutter
   flutter_drawing_board: ^0.5.0
   flutter_staggered_animations: ^1.1.1
+  flutter_tts: ^3.8.3
+  google_translator: ^1.0.0
+  highlight_text: ^1.7.0
   lottie: ^2.6.0
   path_drawing: ^1.0.1
+  translator: ^0.1.7
   video_player: ^2.7.2
 
 dev_dependencies:
@@ -86,6 +90,7 @@ flutter:
     - assets/images/letter_ar/
     - assets/images/animales/
     - assets/audio/animales/
+    - assets/audio/letter_ar/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see

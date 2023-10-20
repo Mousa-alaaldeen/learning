@@ -7,21 +7,22 @@ class AppImages {
   static const String ANIMALS = 'assets/images/animales.png';
   static const String muslem = 'assets/images/mos-removebg-preview.png';
   static const String NUMBER_EN = 'assets/images/number2.png';
+  static const String stories = 'assets/images/stories.png';
   static const String LOTTIE =
       'assets/animation_json/Animation - 1697383201047.json';
-  static const String LION = 'assets/images/lion.png';
+  static const String rabbit = 'assets/images/rabbit.png';
   static const String DUCK = 'assets/images/duck.png';
-  static const String crocodile = 'assets/images/crocodile.png';
+  static const String Crown = 'assets/images/Crown.png';
   static const String fox = 'assets/images/fox.png';
   static const String camel = 'assets/images/camel.png';
-  static const String whale = 'assets/images/whale.png';
-  static const String sheep = 'assets/images/sheep.png';
+  static const String b = 'assets/images/b.png';
+  static const String bread = 'assets/images/bread.png';
   static const String rooster = 'assets/images/rooster.png';
-  static const String GOLD = 'assets/images/gold.png';
-  static const String pomegranate = 'assets/images/pomegranate.png';
+  static const String wolf = 'assets/images/wolf.png';
+  static const String man = 'assets/images/man.png';
   static const String flower = 'assets/images/flower.png';
-  static const String Fish = 'assets/images/Fish.png';
-  static const String tree = 'assets/images/tree.png';
+  static const String hour = 'assets/images/hour.png';
+  static const String sun = 'assets/images/sun.png';
   static const String hawk = 'assets/images/hawk.png';
   static const String frog = 'assets/images/frog.png';
   static const String child = 'assets/images/child.png';
@@ -110,7 +111,7 @@ class AppImages {
       'assets/images/animales/donkey_oudio-removebg-preview.png';
   static const String mouse =
       'assets/images/animales/mouse_oudio-removebg-preview.png';
-  static const String wolf =
+  static const String wolf_oudio =
       'assets/images/animales/wolf_oudio-removebg-preview.png';
   static const String cow =
       'assets/images/animales/cow_oudio-removebg-preview.png';

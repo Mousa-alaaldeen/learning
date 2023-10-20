@@ -77,7 +77,7 @@ class _AnimalScreenState extends State<AnimalScreen> {
       name: 'فأر',
     ),
     AnimalModel(
-      imagePath: AppImages.wolf,
+      imagePath: AppImages.wolf_oudio,
       soundPath: AppOudio.wolf,
       name: 'ذئب',
     ),
@@ -149,7 +149,7 @@ class _AnimalScreenState extends State<AnimalScreen> {
                   child: Card(
                     color: selectedAnimalIndex == index
                         ? const Color.fromRGBO(158, 210, 190, 10)
-                        : Colors.grey.shade100,
+                        : Colors.white,
                     child: Column(
                       children: [
                         Expanded(child: Image.asset(animal.imagePath)),

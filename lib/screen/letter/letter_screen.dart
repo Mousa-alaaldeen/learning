@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:learning/component/app_audio.dart';
 import 'package:learning/component/app_images.dart';
 import 'package:learning/component/styles.dart';
 import 'package:learning/component/widget/build_list_tile.dart';
@@ -16,36 +18,36 @@ class LetterScreen extends StatefulWidget {
 
 class _NumberScreenState extends State<LetterScreen> {
   final List<NumberModel> letter = [
-    NumberModel('',AppImages.LION, 'أ', 'أسد'),
-    NumberModel('',AppImages.DUCK, 'ب', 'بطة'),
-    NumberModel('',AppImages.crocodile, 'ت', 'تمساح'),
-    NumberModel('',AppImages.fox, 'ث', 'ثعلب'),
-    NumberModel('',AppImages.camel, 'ج', 'جمل'),
-    NumberModel('',AppImages.whale, 'ح', 'حوت'),
-    NumberModel('',AppImages.sheep, 'خ', 'خروف'),
-    NumberModel('',AppImages.rooster, 'د', "ديك"),
-    NumberModel('',AppImages.GOLD, 'ذ', 'ذهب'),
-    NumberModel('',AppImages.pomegranate, 'ر', "رمان"),
-    NumberModel('',AppImages.flower, 'ز', 'زرافة'),
-    NumberModel('',AppImages.Fish, 'س', 'سمكة'),
-    NumberModel('',AppImages.tree, 'ش', 'شمس'),
-    NumberModel('',AppImages.hawk, 'ص', 'صقر'),
-    NumberModel('',AppImages.frog, 'ض', 'ضفدع'),
-    NumberModel('',AppImages.child, 'ط', 'طاووس'),
-    NumberModel('',AppImages.nail, 'ظ', 'ظبي'),
-    NumberModel('',AppImages.EYE, 'ع', 'عقرب'),
-    NumberModel('',AppImages.forest, 'غ', 'غزال'),
-    NumberModel('',AppImages.elephant, 'ف', 'فيل'),
-    NumberModel('',AppImages.moon, 'ق', 'قرد'),
-    NumberModel('',AppImages.book, 'ك', 'كلب'),
-    NumberModel('',AppImages.Lemon, 'ل', 'ليمور'),
-    NumberModel('',AppImages.Mosque, 'م', 'ماعز'),
-    NumberModel('',AppImages.star, 'ن', 'نمر'),
-    NumberModel('',AppImages.Hoopoe, 'ه', 'هدهد'),
-    NumberModel('',AppImages.flower1, 'و', 'وحيد القرن'),
-    NumberModel('',AppImages.hand, 'ي', 'يعسوب'),
+    NumberModel(AppOudio.ar1, AppImages.rabbit, 'أ', 'أسد'),
+    NumberModel(AppOudio.ar2, AppImages.DUCK, 'ب', 'بطة'),
+    NumberModel(AppOudio.ar3, AppImages.Crown, 'ت', 'تمساح'),
+    NumberModel(AppOudio.ar4, AppImages.fox, 'ث', 'ثعلب'),
+    NumberModel(AppOudio.ar5, AppImages.camel, 'ج', 'جمل'),
+    NumberModel(AppOudio.ar6, AppImages.b, 'ح', 'حوت'),
+    NumberModel(AppOudio.ar7, AppImages.bread, 'خ', 'خروف'),
+    NumberModel(AppOudio.ar8, AppImages.rooster, 'د', "ديك"),
+    NumberModel(AppOudio.ar9, AppImages.wolf, 'ذ', 'ذهب'),
+    NumberModel(AppOudio.ar10, AppImages.man, 'ر', "رمان"),
+    NumberModel(AppOudio.ar11, AppImages.flower, 'ز', 'زرافة'),
+    NumberModel(AppOudio.ar12, AppImages.hour, 'س', 'سمكة'),
+    NumberModel(AppOudio.ar13, AppImages.sun, 'ش', 'شمس'),
+    NumberModel(AppOudio.ar14, AppImages.hawk, 'ص', 'صقر'),
+    NumberModel(AppOudio.ar15, AppImages.frog, 'ض', 'ضفدع'),
+    NumberModel(AppOudio.ar16, AppImages.child, 'ط', 'طاووس'),
+    NumberModel(AppOudio.ar17, AppImages.nail, 'ظ', 'ظبي'),
+    NumberModel(AppOudio.ar18, AppImages.EYE, 'ع', 'عقرب'),
+    NumberModel(AppOudio.ar19, AppImages.forest, 'غ', 'غزال'),
+    NumberModel(AppOudio.ar20, AppImages.elephant, 'ف', 'فيل'),
+    NumberModel(AppOudio.ar21, AppImages.moon, 'ق', 'قرد'),
+    NumberModel(AppOudio.ar22, AppImages.book, 'ك', 'كلب'),
+    NumberModel(AppOudio.ar23, AppImages.Lemon, 'ل', 'ليمور'),
+    NumberModel(AppOudio.ar24, AppImages.Mosque, 'م', 'ماعز'),
+    NumberModel(AppOudio.ar25, AppImages.star, 'ن', 'نمر'),
+    NumberModel(AppOudio.ar26, AppImages.Hoopoe, 'ه', 'هدهد'),
+    NumberModel(AppOudio.ar27, AppImages.flower1, 'و', 'وحيد القرن'),
+    NumberModel(AppOudio.ar28, AppImages.hand, 'ي', 'يعسوب'),
   ];
-
+  final player = AudioPlayer();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,6 +86,13 @@ class _NumberScreenState extends State<LetterScreen> {
                       subtitle: '', //letter[index].subtitle,
                       images: letter[index].images,
                       title: '', //letter[index].title,
+
+                      url: () async {
+                        if (player.state == PlayerState.playing) {
+                          await player.stop();
+                        }
+                        await player.play(AssetSource(letter[index].oudio!));
+                      },
                     ),
                   ),
                 ),
