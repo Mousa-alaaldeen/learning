@@ -60,4 +60,32 @@ class AppOudio {
   static const String ar26 = 'audio/letter_ar/26.mp3';
   static const String ar27 = 'audio/letter_ar/27.mp3';
   static const String ar28 = 'audio/letter_ar/28.mp3';
+
+  //letter en
+  static const String en1 = 'audio/letter_en/1.mp3';
+  static const String en2 = 'audio/letter_en/2.mp3';
+  static const String en3 = 'audio/letter_en/3.mp3';
+  static const String en4 = 'audio/letter_en/4.mp3';
+  static const String en5 = 'audio/letter_en/5.mp3';
+  static const String en6 = 'audio/letter_en/6.mp3';
+  static const String en7 = 'audio/letter_en/7.mp3';
+  static const String en8 = 'audio/letter_en/8.mp3';
+  static const String en9 = 'audio/letter_en/9.mp3';
+  static const String en10 = 'audio/letter_en/10.mp3';
+  static const String en11 = 'audio/letter_en/11.mp3';
+  static const String en12 = 'audio/letter_en/12.mp3';
+  static const String en13 = 'audio/letter_en/13.mp3';
+  static const String en14 = 'audio/letter_en/14.mp3';
+  static const String en15 = 'audio/letter_en/15.mp3';
+  static const String en16 = 'audio/letter_en/16.mp3';
+  static const String en17 = 'audio/letter_en/17.mp3';
+  static const String en18 = 'audio/letter_en/18.mp3';
+  static const String en19 = 'audio/letter_en/19.mp3';
+  static const String en20 = 'audio/letter_en/20.mp3';
+  static const String en21 = 'audio/letter_en/21.mp3';
+  static const String en22 = 'audio/letter_en/22.mp3';
+  static const String en23 = 'audio/letter_en/23.mp3';
+  static const String en24 = 'audio/letter_en/24.mp3';
+  static const String en25 = 'audio/letter_en/25.mp3';
+  static const String en26 = 'audio/letter_en/26.mp3';
 }

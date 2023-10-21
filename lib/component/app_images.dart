@@ -58,6 +58,7 @@ class AppImages {
   static const String ten = 'assets/images/numbers/ten.png';
   static const String blackboard = 'assets/images/bl.jpg';
   static const String education = 'assets/images/larning.png';
+
   static const String ar1 = 'assets/images/letter_ar/1.jpg';
   static const String ar2 = 'assets/images/letter_ar/2.jpg';
   static const String ar3 = 'assets/images/letter_ar/3.jpg';
@@ -123,4 +124,31 @@ class AppImages {
       'assets/images/animales/bear_oudio-removebg-preview.png';
   static const String horse =
       'assets/images/animales/horse_oudio-removebg-preview.png';
+
+  static const String en1 = 'assets/images/letter_en/1.jpeg';
+  static const String en2 = 'assets/images/letter_en/2.jpeg';
+  static const String en3 = 'assets/images/letter_en/3.jpeg';
+  static const String en4 = 'assets/images/letter_en/4.jpeg';
+  static const String en5 = 'assets/images/letter_en/5.jpeg';
+  static const String en6 = 'assets/images/letter_en/6.jpeg';
+  static const String en7 = 'assets/images/letter_en/7.jpeg';
+  static const String en8 = 'assets/images/letter_en/8.jpeg';
+  static const String en9 = 'assets/images/letter_en/9.jpeg';
+  static const String en10 = 'assets/images/letter_en/10.jpeg';
+  static const String en11 = 'assets/images/letter_en/11.jpeg';
+  static const String en12 = 'assets/images/letter_en/12.jpeg';
+  static const String en13 = 'assets/images/letter_en/13.jpeg';
+  static const String en14 = 'assets/images/letter_en/14.jpeg';
+  static const String en15 = 'assets/images/letter_en/15.jpeg';
+  static const String en16 = 'assets/images/letter_en/16.jpeg';
+  static const String en17 = 'assets/images/letter_en/17.jpeg';
+  static const String en18 = 'assets/images/letter_en/18.jpeg';
+  static const String en19 = 'assets/images/letter_en/19.jpeg';
+  static const String en20 = 'assets/images/letter_en/20.jpeg';
+  static const String en21 = 'assets/images/letter_en/21.jpeg';
+  static const String en22 = 'assets/images/letter_en/22.jpeg';
+  static const String en23 = 'assets/images/letter_en/23.jpeg';
+  static const String en24 = 'assets/images/letter_en/24.jpeg';
+  static const String en25 = 'assets/images/letter_en/25.jpeg';
+  static const String en26 = 'assets/images/letter_en/26.jpeg';
 }

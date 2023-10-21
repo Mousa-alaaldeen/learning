@@ -43,6 +43,7 @@ dependencies:
   highlight_text: ^1.7.0
   lottie: ^2.6.0
   path_drawing: ^1.0.1
+  toggle_switch: ^2.1.0
   translator: ^0.1.7
   video_player: ^2.7.2
 
@@ -89,8 +90,10 @@ flutter:
     - assets/images/numbers/
     - assets/images/letter_ar/
     - assets/images/animales/
+    - assets/images/letter_en/
     - assets/audio/animales/
     - assets/audio/letter_ar/
+    - assets/audio/letter_en/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see

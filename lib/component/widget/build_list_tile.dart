@@ -28,12 +28,26 @@ class BuildListTile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Expanded(
-            child: Image.asset(
-              images,
+            child: Container(
               width: 200,
               height: 200,
-              fit: BoxFit.fill,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  image: DecorationImage(
+                      image: AssetImage(
+                        images,
+                      ),
+                      fit: BoxFit.fill)),
+              // child: Image.asset(
+              //   images,
+              //   width: 200,
+              //   height: 200,
+              //   fit: BoxFit.fill,
+              // ),
             ),
+          ),
+          SizedBox(
+            width: 10,
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
