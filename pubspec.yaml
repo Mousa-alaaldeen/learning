@@ -108,6 +108,10 @@ flutter:
       fonts:
         - asset: assets/fonts/Amiri-Bold.ttf
           weight: 700
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto.ttf
+          weight: 700
           #       - asset: fonts/Schyler-Italic.ttf
           #         style: italic
           #   - family: Trajan Pro

@@ -75,6 +75,9 @@ class _NumberScreenState extends State<NumberScreen> {
                       images: numbers[index].images,
                       title: numbers[index].title,
                       url: () async {
+                        setState(() {
+                          selectedAnimalIndex = index;
+                        });
                         if (player.state == PlayerState.playing) {
                           await player.stop();
                         }

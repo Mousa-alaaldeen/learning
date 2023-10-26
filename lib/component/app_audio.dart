@@ -12,6 +12,17 @@ class AppOudio {
   static const String EIGTH_AR = 'audio/number/eigth_ar.mp3';
   static const String NINE_AR = 'audio/number/nine_ar.mp3';
   static const String TEN_AR = 'audio/number/ten_ar.mp3';
+  //number en
+  static const String ONE_en = 'audio/number/1.mp3';
+  static const String TOW_en = 'audio/number/2.mp3';
+  static const String THREE_en = 'audio/number/3.mp3';
+  static const String FOUR_en = 'audio/number/4.mp3';
+  static const String FIVE_en = 'audio/number/5.mp3';
+  static const String SIX_en = 'audio/number/6.mp3';
+  static const String SEVEN_en = 'audio/number/7.mp3';
+  static const String EIGTH_en = 'audio/number/8.mp3';
+  static const String NINE_en = 'audio/number/9.mp3';
+  static const String TEN_en = 'audio/number/10.mp3';
   //animales
   static const String bird_oudio = 'audio/animales/bird.mp3';
   static const String camel_oudio = 'audio/animales/camel.mp3';

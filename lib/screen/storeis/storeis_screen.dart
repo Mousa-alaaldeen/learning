@@ -3,11 +3,14 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:learning/component/styles.dart';
 import 'package:translator/translator.dart';
 
 class StoriesScreen extends StatefulWidget {
-  const StoriesScreen({Key? key}) : super(key: key);
-
+  const StoriesScreen({Key? key, required this.image, required this.title})
+      : super(key: key);
+  final String image;
+  final String title;
   @override
   _StoriesScreenState createState() => _StoriesScreenState();
 }
@@ -55,8 +58,7 @@ class _StoriesScreenState extends State<StoriesScreen> {
 
   @override
   Widget build(BuildContext context) {
-    String storyText =
-        "Iron is very important in diet. It helps children grow and increase resistance to disease. It is particularly important for young women, pregnant women, and old people. We all need a lot of iron in our diet. A lack of iron makes people anaemic and causes fatigue and depression. Good sources of iron are liver, lentils, whole grains, green leafy vegetables, egg yolk, and molasses.";
+    String storyText = widget.title;
 
     final words = storyText.split(' ');
 
@@ -85,14 +87,35 @@ class _StoriesScreenState extends State<StoriesScreen> {
       context: context,
       locale: const Locale('en'),
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Text-to-Speech and Translation'),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: SelectableText.rich(
-            TextSpan(children: spans),
-          ),
+        // appBar: AppBar(
+        //   title: const Text(''),
+        // ),
+        body: ListView(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: const CircleAvatar(
+                      radius: 25,
+                      child: Icon(
+                        Icons.keyboard_arrow_left_sharp,
+                      ),
+                    )),
+              ),
+            ),
+            Image.asset(widget.image),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: SelectableText.rich(
+                TextSpan(children: spans, style: Styles.textStyle30),
+              ),
+            ),
+          ],
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {

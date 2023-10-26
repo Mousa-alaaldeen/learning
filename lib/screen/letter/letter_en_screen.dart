@@ -112,4 +112,10 @@ class _NumberScreenState extends State<LetterEnScreen> {
       ),
     );
   }
+  
+  @override
+  void dispose() {
+    player.stop();
+    super.dispose();
+  }
 }

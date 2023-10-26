@@ -28,9 +28,8 @@ class BuildListTile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Expanded(
+            flex: 5,
             child: Container(
-              width: 200,
-              height: 200,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
@@ -50,7 +49,7 @@ class BuildListTile extends StatelessWidget {
             width: 10,
           ),
           Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Center(
                 child: Text(title, style: Styles.textStyle40),

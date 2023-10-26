@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_drawing_board/flutter_drawing_board.dart';
 import 'package:flutter_drawing_board/paint_contents.dart';
 import 'package:flutter_drawing_board/paint_extension.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:learning/component/app_images.dart';
 import 'package:learning/component/styles.dart';
 import 'package:learning/models/number_model.dart';
@@ -132,35 +133,41 @@ class _MyHomePageState extends State<DrawingScreen> {
   final DrawingController _drawingController = DrawingController();
   int itemCount = 0;
 
+  FlutterTts flutterTts = FlutterTts();
+
+  Future<void> _speak(String text) async {
+    await flutterTts.speak(text);
+  }
+
   final List<NumberModel> letter = [
-    NumberModel('',AppImages.ar1, 'أ', 'أسد'),
-    NumberModel('',AppImages.ar2, 'ب', 'بطة'),
-    NumberModel('',AppImages.ar3, 'ت', 'تمساح'),
-    NumberModel('',AppImages.ar4, 'ث', 'ثعلب'),
-    NumberModel('',AppImages.ar5, 'ج', 'جمل'),
-    NumberModel('',AppImages.ar6, 'ح', 'حوت'),
-    NumberModel('',AppImages.ar7, 'خ', 'خروف'),
-    NumberModel('',AppImages.ar8, 'د', "ديك"),
-    NumberModel('',AppImages.ar9, 'ذ', 'ذهب'),
-    NumberModel('',AppImages.ar10, 'ر', "رمان"),
-    NumberModel('',AppImages.ar11, 'ز', 'زرافة'),
-    NumberModel('',AppImages.ar12, 'س', 'سمكة'),
-    NumberModel('',AppImages.ar13, 'ش', 'شمس'),
-    NumberModel('',AppImages.ar14, 'ص', 'صقر'),
-    NumberModel('',AppImages.ar15, 'ض', 'ضفدع'),
-    NumberModel('',AppImages.ar16, 'ط', 'طاووس'),
-    NumberModel('',AppImages.ar17, 'ظ', 'ظبي'),
-    NumberModel('',AppImages.ar18, 'ع', 'عقرب'),
-    NumberModel('',AppImages.ar19, 'غ', 'غزال'),
-    NumberModel('',AppImages.ar20, 'ف', 'فيل'),
-    NumberModel('',AppImages.ar21, 'ق', 'قرد'),
-    NumberModel('',AppImages.ar22, 'ك', 'كلب'),
-    NumberModel('',AppImages.ar23, 'ل', 'ليمور'),
-    NumberModel('',AppImages.ar24, 'م', 'ماعز'),
-    NumberModel('',AppImages.ar25, 'ن', 'نمر'),
-    NumberModel('',AppImages.ar26, 'ه', 'هدهد'),
-    NumberModel('',AppImages.ar27, 'و', 'وحيد القرن'),
-    NumberModel('',AppImages.ar28, 'ي', 'يعسوب'),
+    NumberModel('', AppImages.ar1, 'أ', 'أسد'),
+    NumberModel('', AppImages.ar2, 'ب', 'بطة'),
+    NumberModel('', AppImages.ar3, 'ت', 'تمساح'),
+    NumberModel('', AppImages.ar4, 'ث', 'ثعلب'),
+    NumberModel('', AppImages.ar5, 'ج', 'جمل'),
+    NumberModel('', AppImages.ar6, 'ح', 'حوت'),
+    NumberModel('', AppImages.ar7, 'خ', 'خروف'),
+    NumberModel('', AppImages.ar8, 'د', "ديك"),
+    NumberModel('', AppImages.ar9, 'ذ', 'ذهب'),
+    NumberModel('', AppImages.ar10, 'ر', "رمان"),
+    NumberModel('', AppImages.ar11, 'ز', 'زرافة'),
+    NumberModel('', AppImages.ar12, 'س', 'سمكة'),
+    NumberModel('', AppImages.ar13, 'ش', 'شمس'),
+    NumberModel('', AppImages.ar14, 'ص', 'صقر'),
+    NumberModel('', AppImages.ar15, 'ض', 'ضفدع'),
+    NumberModel('', AppImages.ar16, 'ط', 'طاووس'),
+    NumberModel('', AppImages.ar17, 'ظ', 'ظبي'),
+    NumberModel('', AppImages.ar18, 'ع', 'عقرب'),
+    NumberModel('', AppImages.ar19, 'غ', 'غزال'),
+    NumberModel('', AppImages.ar20, 'ف', 'فيل'),
+    NumberModel('', AppImages.ar21, 'ق', 'قرد'),
+    NumberModel('', AppImages.ar22, 'ك', 'كلب'),
+    NumberModel('', AppImages.ar23, 'ل', 'ليمور'),
+    NumberModel('', AppImages.ar24, 'م', 'ماعز'),
+    NumberModel('', AppImages.ar25, 'ن', 'نمر'),
+    NumberModel('', AppImages.ar26, 'ه', 'هدهد'),
+    NumberModel('', AppImages.ar27, 'و', 'وحيد القرن'),
+    NumberModel('', AppImages.ar28, 'ي', 'يعسوب'),
   ];
 
   @override
@@ -286,7 +293,6 @@ class _MyHomePageState extends State<DrawingScreen> {
                     onPressed: () {
                       if (itemCount != 27) {
                         itemCount++;
-                        
                       }
 
                       setState(() {});
@@ -297,11 +303,25 @@ class _MyHomePageState extends State<DrawingScreen> {
                     ),
                   ),
                 ),
-                CircleAvatar(
-                  radius: 50,
-                  child: Text(
-                    letter[itemCount].title,
-                    style: Styles.textStyle40,
+                GestureDetector(
+                  onTap: () async {
+                    _speak(letter[itemCount].title);
+                  },
+                  child: CircleAvatar(
+                    radius: 50,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Center(
+                            child: Text(
+                              letter[itemCount].title,
+                              style: Styles.textStyle40,
+                            ),
+                          ),
+                        ),
+                        const Icon(Icons.volume_up),
+                      ],
+                    ),
                   ),
                 ),
                 CircleAvatar(
@@ -311,7 +331,7 @@ class _MyHomePageState extends State<DrawingScreen> {
                       if (itemCount != 0) {
                         itemCount--;
                       }
-                      
+
                       setState(() {});
                     },
                     icon: const Icon(

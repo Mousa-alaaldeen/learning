@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:learning/component/app_audio.dart';
 import 'package:learning/component/app_images.dart';
 import 'package:learning/component/styles.dart';
 import 'package:learning/component/widget/build_list_tile.dart';
@@ -16,18 +18,19 @@ class NumberEnScreen extends StatefulWidget {
 
 class _NumberEnScreenState extends State<NumberEnScreen> {
   final List<NumberModel> numbers = [
-    NumberModel('', AppImages.one, '1', 'one'),
-    NumberModel('', AppImages.tow, '2', 'two'),
-    NumberModel('', AppImages.three, '3', 'three'),
-    NumberModel('', AppImages.four, '4', 'four'),
-    NumberModel('', AppImages.five, '5', 'five'),
-    NumberModel('', AppImages.six, '6', 'six'),
-    NumberModel('', AppImages.seven, '7', 'seven'),
-    NumberModel('', AppImages.eigth, '8', 'eight'),
-    NumberModel('', AppImages.nine, '9', 'nine'),
-    NumberModel('', AppImages.ten, '10', 'ten'),
+    NumberModel(AppOudio.ONE_en, AppImages.one, '1', 'one'),
+    NumberModel(AppOudio.TOW_en, AppImages.tow, '2', 'two'),
+    NumberModel(AppOudio.THREE_en, AppImages.three, '3', 'three'),
+    NumberModel(AppOudio.FOUR_en, AppImages.four, '4', 'four'),
+    NumberModel(AppOudio.FIVE_en, AppImages.five, '5', 'five'),
+    NumberModel(AppOudio.SIX_en, AppImages.six, '6', 'six'),
+    NumberModel(AppOudio.SEVEN_en, AppImages.seven, '7', 'seven'),
+    NumberModel(AppOudio.EIGTH_en, AppImages.eigth, '8', 'eight'),
+    NumberModel(AppOudio.NINE_en, AppImages.nine, '9', 'nine'),
+    NumberModel(AppOudio.TEN_en, AppImages.ten, '10', 'ten'),
   ];
 
+  final player = AudioPlayer();
   int selectedAnimalIndex = -1;
 
   @override
@@ -71,6 +74,15 @@ class _NumberEnScreenState extends State<NumberEnScreen> {
                       subtitle: numbers[index].subtitle,
                       images: numbers[index].images,
                       title: numbers[index].title,
+                      url: () async {
+                           setState(() {
+                          selectedAnimalIndex = index;
+                        });
+                        if (player.state == PlayerState.playing) {
+                          await player.stop();
+                        }
+                        await player.play(AssetSource(numbers[index].oudio!));
+                      },
                     ),
                   ),
                 ),
@@ -80,5 +92,11 @@ class _NumberEnScreenState extends State<NumberEnScreen> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    player.stop();
+    super.dispose();
   }
 }

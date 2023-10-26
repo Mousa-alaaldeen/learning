@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:learning/component/app_images.dart';
 import 'package:learning/component/widget/item_small.dart';
 import 'package:learning/component/styles.dart';
-import 'package:learning/screen/Ablution/ablution_screen.dart';
+import 'package:learning/screen/storeis/storeis_screen.dart';
+import 'package:learning/screen/storeis/storeis_layout.dart';
 import 'package:learning/screen/animal_screen.dart/animal_screen.dart';
 import 'package:learning/screen/black_board/black_board.dart';
 import 'package:learning/screen/letter/letter_en_screen.dart';
@@ -155,7 +156,7 @@ class HomeScreen extends StatelessWidget {
                   onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => StoriesScreen(),
+                      builder: (context) => MyCustomWidget(),
                     ),
                   ),
                   color: Color.fromRGBO(194, 222, 220, 10),

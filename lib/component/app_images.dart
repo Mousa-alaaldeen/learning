@@ -87,6 +87,18 @@ class AppImages {
   static const String ar26 = 'assets/images/letter_ar/26.jpg';
   static const String ar27 = 'assets/images/letter_ar/27.jpg';
   static const String ar28 = 'assets/images/letter_ar/28.jpg';
+  static const String story1 = 'assets/images/story1.png';
+  static const String story2 = 'assets/images/story2.png';
+  static const String story3 = 'assets/images/story3.png';
+  static const String story4 = 'assets/images/story4.png';
+  static const String story5 = 'assets/images/story5.jpg';
+  static const String story6 = 'assets/images/story6.JPG';
+  static const String story7 = 'assets/images/story7.JPG';
+  static const String story8 = 'assets/images/story8.JPG';
+  static const String story9 = 'assets/images/story9.JPG';
+  static const String story10 = 'assets/images/story10.JPG';
+  static const String story11 = 'assets/images/story11.JPG';
+  static const String story12 = 'assets/images/story12.JPG';
 
   static const String bird_oudio =
       'assets/images/animales/bird_oudio-removebg-preview.png';

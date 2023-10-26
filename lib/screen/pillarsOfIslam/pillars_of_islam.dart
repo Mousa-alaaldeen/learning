@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:learning/component/styles.dart';
 
-class PillarsOfIslam extends StatelessWidget {
+class PillarsOfIslam extends StatefulWidget {
+  const PillarsOfIslam({Key? key}) : super(key: key);
+
+  @override
+  State<PillarsOfIslam> createState() => _PillarsOfIslamState();
+}
+
+class _PillarsOfIslamState extends State<PillarsOfIslam> {
+  int selectedAnimalIndex = -1;
+
   final List<String> pillarsOfIslam = const [
     'الشهادة - الإيمان بأن لا إله إلا الله وأن محمدًا رسول الله',
     'الصلاة - أداء الصلوات الخمس في اليوم والليلة',
@@ -11,7 +20,12 @@ class PillarsOfIslam extends StatelessWidget {
     'الحج - أداء فريضة الحج إذا كانت الإمكانيات تسمح بها',
   ];
 
-  const PillarsOfIslam({Key? key}) : super(key: key);
+  FlutterTts flutterTts = FlutterTts();
+
+  Future<void> _speak(String text) async {
+    await flutterTts.speak(text);
+  }
+
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
@@ -21,7 +35,7 @@ class PillarsOfIslam extends StatelessWidget {
         centerTitle: true,
         title: const Text(
           ' أركان الإسلام',
-          style: Styles.textStyle25,
+          style: TextStyle(fontSize: 25),
         ),
       ),
       body: AnimationLimiter(
@@ -60,9 +74,21 @@ class PillarsOfIslam extends StatelessWidget {
                         ),
                       ],
                     ),
-                    child: Text(
-                      pillarsOfIslam[index],
-                      style: Styles.textStyle25,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            pillarsOfIslam[index],
+                            style: const TextStyle(fontSize: 25),
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () async {
+                            _speak(pillarsOfIslam[index]);
+                          },
+                          icon: const Icon(Icons.volume_up),
+                        )
+                      ],
                     ),
                   ),
                 ),
@@ -72,5 +98,11 @@ class PillarsOfIslam extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    flutterTts.stop();
+    super.dispose();
   }
 }
