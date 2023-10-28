@@ -118,61 +118,61 @@ class _AnimalScreenState extends State<AnimalScreen> {
       ),
       body: Column(
         children: [
-          Image.asset(
-            animalsList[selectedAnimalIndex].imagePath,
-            height: MediaQuery.of(context).size.height * .3,
-            width: MediaQuery.of(context).size.width,
-            fit: BoxFit.fill,
-          ),
+          AnimalImage(
+              animalsList: animalsList,
+              selectedAnimalIndex: selectedAnimalIndex),
           const SizedBox(
             height: 10,
           ),
-          Expanded(
-            child: GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-              ),
-              itemCount: animalsList.length, // عدد الحيوانات في القائمة
-              itemBuilder: (context, index) {
-                final animal = animalsList[index];
-                return GestureDetector(
-                  onTap: () async {
-                    setState(() {
-                      selectedAnimalIndex = index;
-                    });
-                    if (player.state == PlayerState.playing) {
-                      await player.stop();
-                    }
-                    await player
-                        .play(AssetSource(animalsList[index].soundPath));
-                  },
-                  child: Card(
-                    color: selectedAnimalIndex == index
-                        ? const Color.fromRGBO(158, 210, 190, 10)
-                        : Colors.white,
-                    child: Column(
-                      children: [
-                        Expanded(child: Image.asset(animal.imagePath)),
-                        Text(
-                          animal.name,
-                          style: Styles.textStyle20,
-                        ),
-                        Align(
-                            alignment: Alignment.bottomLeft,
-                            child: selectedAnimalIndex == index
-                                ? const Icon(Icons.volume_up_outlined)
-                                : Icon(
-                                    Icons.abc_outlined,
-                                    color: Colors.grey.shade100,
-                                  )),
-                      ],
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
+          itemAnimals(),
         ],
+      ),
+    );
+  }
+
+  Expanded itemAnimals() {
+    return Expanded(
+      child: GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+        ),
+        itemCount: animalsList.length, // عدد الحيوانات في القائمة
+        itemBuilder: (context, index) {
+          final animal = animalsList[index];
+          return GestureDetector(
+            onTap: () async {
+              setState(() {
+                selectedAnimalIndex = index;
+              });
+              if (player.state == PlayerState.playing) {
+                await player.stop();
+              }
+              await player.play(AssetSource(animalsList[index].soundPath));
+            },
+            child: Card(
+              color: selectedAnimalIndex == index
+                  ? const Color.fromRGBO(158, 210, 190, 10)
+                  : Colors.white,
+              child: Column(
+                children: [
+                  Expanded(child: Image.asset(animal.imagePath)),
+                  Text(
+                    animal.name,
+                    style: Styles.textStyle20,
+                  ),
+                  Align(
+                      alignment: Alignment.bottomLeft,
+                      child: selectedAnimalIndex == index
+                          ? const Icon(Icons.volume_up_outlined)
+                          : Icon(
+                              Icons.abc_outlined,
+                              color: Colors.grey.shade100,
+                            )),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }
@@ -181,5 +181,26 @@ class _AnimalScreenState extends State<AnimalScreen> {
   void dispose() {
     player.stop();
     super.dispose();
+  }
+}
+
+class AnimalImage extends StatelessWidget {
+  const AnimalImage({
+    Key? key,
+    required this.animalsList,
+    required this.selectedAnimalIndex,
+  }) : super(key: key);
+
+  final List<AnimalModel> animalsList;
+  final int selectedAnimalIndex;
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset(
+      animalsList[selectedAnimalIndex].imagePath,
+      height: MediaQuery.of(context).size.height * .3,
+      width: MediaQuery.of(context).size.width,
+      fit: BoxFit.fill,
+    );
   }
 }

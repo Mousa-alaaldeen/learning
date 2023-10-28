@@ -9,9 +9,9 @@ class ItemSmall extends StatelessWidget {
   final String? text2;
   final String images;
   final void Function()? onTap;
-  const ItemSmall({Key? key, 
-    
-    required this.color,
+  const ItemSmall({
+    Key? key,
+    this.color = const Color.fromRGBO(255, 217, 183, 10),
     required this.text,
     required this.images,
     this.onTap,
@@ -33,6 +33,7 @@ class ItemSmall extends StatelessWidget {
           child: Column(children: [
             Expanded(
               child: Image.asset(
+                
                 images,
                 width: MediaQuery.of(context).size.width,
                 fit: BoxFit.fill,

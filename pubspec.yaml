@@ -85,6 +85,7 @@ flutter:
   assets:
     - assets/animation_json/
     - assets/images/
+    - assets/audio/exam/
     - assets/audio/number/
     - assets/video/
     - assets/images/numbers/

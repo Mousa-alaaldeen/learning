@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:learning/component/app_images.dart';
 import 'package:learning/component/widget/item_small.dart';
 import 'package:learning/component/styles.dart';
-import 'package:learning/screen/storeis/storeis_screen.dart';
+import 'package:learning/screen/exam/exam_layout.dart';
+import 'package:learning/screen/home/cover_image.dart';
 import 'package:learning/screen/storeis/storeis_layout.dart';
 import 'package:learning/screen/animal_screen.dart/animal_screen.dart';
 import 'package:learning/screen/black_board/black_board.dart';
@@ -23,11 +24,7 @@ class HomeScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
-            Image.asset(
-              'assets/images/welcome.jpg',
-              width: 10000,
-              height: MediaQuery.of(context).size.height * .3,
-            ),
+            CoverImage(),
             const Center(
               child: Text(
                 ' مرحبًا  !',
@@ -164,6 +161,28 @@ class HomeScreen extends StatelessWidget {
                   images: AppImages.stories,
                 ),
               ],
+            ),
+            // Container(
+            //   margin: EdgeInsets.symmetric(
+            //     vertical: 10,
+            //   ),
+            //   height: 1,
+            //   width: double.infinity,
+            //   color: Colors.grey,
+            // ),
+            SizedBox(
+              height: 10,
+            ),
+            ItemSmall(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ExamLayout(),
+                ),
+              ),
+              color: Color.fromRGBO(255, 217, 183, 10),
+              text: 'الاختبارات',
+              images: AppImages.exam,
             ),
           ],
         ),

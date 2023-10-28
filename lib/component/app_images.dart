@@ -8,6 +8,7 @@ class AppImages {
   static const String muslem = 'assets/images/mos-removebg-preview.png';
   static const String NUMBER_EN = 'assets/images/number2.png';
   static const String stories = 'assets/images/stories.png';
+  static const String exam= 'assets/images/exam.png';
   static const String LOTTIE =
       'assets/animation_json/Animation - 1697383201047.json';
   static const String rabbit = 'assets/images/rabbit.png';
