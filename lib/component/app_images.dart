@@ -8,7 +8,7 @@ class AppImages {
   static const String muslem = 'assets/images/mos-removebg-preview.png';
   static const String NUMBER_EN = 'assets/images/number2.png';
   static const String stories = 'assets/images/stories.png';
-  static const String exam= 'assets/images/exam.png';
+  static const String exam = 'assets/images/exam.png';
   static const String LOTTIE =
       'assets/animation_json/Animation - 1697383201047.json';
   static const String rabbit = 'assets/images/rabbit.png';
@@ -58,7 +58,7 @@ class AppImages {
       'assets/images/numbers/number_nine-removebg-preview.png';
   static const String ten = 'assets/images/numbers/ten.png';
   static const String blackboard = 'assets/images/bl.jpg';
-  static const String education = 'assets/images/larning.png';
+  static const String education = 'assets/images/black.jpg';
 
   static const String ar1 = 'assets/images/letter_ar/1.jpg';
   static const String ar2 = 'assets/images/letter_ar/2.jpg';
@@ -164,4 +164,16 @@ class AppImages {
   static const String en24 = 'assets/images/letter_en/24.jpeg';
   static const String en25 = 'assets/images/letter_en/25.jpeg';
   static const String en26 = 'assets/images/letter_en/26.jpeg';
+//exam
+  static const String examAr1 = 'assets/images/exam/exam10ar.png';
+  static const String examNumberAr = 'assets/images/exam/number_ar.jpg';
+  static const String examNumberEn = 'assets/images/exam/numberEn.jpg';
+  static const String letterAr10 = 'assets/images/exam/letterAr10.png';
+  static const String letterAr20 = 'assets/images/exam/letterAr20.jpg';
+  static const String letterAr30 = 'assets/images/exam/letterAr30.jpg';
+  static const String letterAr = 'assets/images/exam/letterAr.jpg';
+  static const String letterEn = 'assets/images/exam/letterEn.jpg';
+  static const String letterEn10 = 'assets/images/exam/letterEn10.jpg';
+  static const String letterEn20 = 'assets/images/exam/letterEn20.jpg';
+   static const String letterEn30 = 'assets/images/exam/letterEn30.jpg';
 }

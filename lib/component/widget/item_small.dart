@@ -33,7 +33,6 @@ class ItemSmall extends StatelessWidget {
           child: Column(children: [
             Expanded(
               child: Image.asset(
-                
                 images,
                 width: MediaQuery.of(context).size.width,
                 fit: BoxFit.fill,

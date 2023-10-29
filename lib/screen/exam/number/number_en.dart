@@ -246,7 +246,7 @@ class BuildCircleAvatar extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Align(
-        alignment: Alignment.topLeft,
+        alignment: Alignment.topRight,
         child: InkWell(
             onTap: () {
               Navigator.pop(context);
@@ -254,7 +254,7 @@ class BuildCircleAvatar extends StatelessWidget {
             child: const CircleAvatar(
               radius: 25,
               child: Icon(
-                Icons.keyboard_arrow_left_sharp,
+                Icons.keyboard_arrow_right_sharp,
               ),
             )),
       ),

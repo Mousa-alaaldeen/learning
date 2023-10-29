@@ -5,41 +5,42 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:learning/component/app_images.dart';
+import 'package:learning/component/components.dart';
 import 'package:learning/component/styles.dart';
 import 'package:learning/component/widget/item_small.dart';
 import 'package:learning/models/storeis_model.dart';
 import 'package:learning/screen/exam/letter/letter_ar/layout_screen.dart';
-import 'package:learning/screen/exam/letter/letter_en/layout_screen.dart';
+import 'package:learning/screen/exam/letter/letter_ar/screen_one.dart';
+import 'package:learning/screen/exam/letter/letter_ar/screen_three.dart';
+import 'package:learning/screen/exam/letter/letter_ar/screen_two.dart';
 import 'package:learning/screen/exam/number/number_ar.dart';
 import 'package:learning/screen/exam/number/number_en.dart';
 import 'package:learning/screen/storeis/storeis_layout.dart';
 
-class ExamLayout extends StatefulWidget {
-  const ExamLayout({Key? key}) : super(key: key);
+class ExamLetterAr extends StatefulWidget {
+  const ExamLetterAr({Key? key}) : super(key: key);
 
   @override
-  State<ExamLayout> createState() => _ExamLayoutState();
+  State<ExamLetterAr> createState() => _ExamLetterArState();
 }
 
-class _ExamLayoutState extends State<ExamLayout> {
+class _ExamLetterArState extends State<ExamLetterAr> {
   double w = 0.0;
-  int columnCount = 2;
+  int columnCount = 1;
 
   // List of exam screens
 
   final List<Widget> examNumber = [
-    const ExamNumberAr(),
-    const ExamNumberEn(),
-    const ExamLetterAr(),
-    const ExamLetterEn(),
+    const ScreenOneAr(),
+    const ScreenTwoAr(),
+    const ScreenThreeAr(),
   ];
 
   // List of StoreisModel data
   final List imageAndText = [
-    AppImages.examNumberAr,
-    AppImages.examNumberEn,
-    AppImages.letterAr,
-    AppImages.letterEn,
+    AppImages.letterAr10,
+    AppImages.letterAr20,
+    AppImages.letterAr30,
   ];
 
   @override
@@ -47,10 +48,11 @@ class _ExamLayoutState extends State<ExamLayout> {
     w = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      backgroundColor: Colors.teal[50],
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(255, 217, 183, 10),
+        backgroundColor: Colors.teal[50],
         title: const Text(
-          'اختبارات',
+          'اختبارات الحروف العربيه',
           style: Styles.textStyle25,
         ),
         centerTitle: true,
@@ -89,21 +91,54 @@ class _ExamLayoutState extends State<ExamLayout> {
   Widget _buildGridItem(int index) {
     return InkWell(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => examNumber[index],
-          ),
-        );
+        if (index <= idAr) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => examNumber[index],
+            ),
+          );
+        } else {
+          // عند عدم توافق الشرط (index > idAr)
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: const Text("خطأ"),
+                content:
+                    const Text("يجب عليك النجاح في الامتحان السابق أولاً."),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop(); // لإغلاق الـ Dialog
+                    },
+                    child: const Text("موافق"),
+                  ),
+                ],
+              );
+            },
+          );
+        }
       },
       child: Container(
         margin: EdgeInsets.only(bottom: w / 30, left: w / 60, right: w / 60),
         height: 300,
         child: Expanded(
-          child: Image.asset(
-            imageAndText[index],
-            width: MediaQuery.of(context).size.width,
-            fit: BoxFit.fill,
+          child: Stack(
+            children: [
+              Image.asset(
+                imageAndText[index],
+                width: MediaQuery.of(context).size.width,
+                fit: BoxFit.fill,
+              ),
+              if (index > idAr)
+                Container(
+                  decoration: BoxDecoration(
+                    color:
+                        Colors.black.withOpacity(0.3), // لون أسود فاتح مع تعتيم
+                  ),
+                ),
+            ],
           ),
         ),
       ),

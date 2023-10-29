@@ -1,36 +1,42 @@
+// ignore_for_file: avoid_print
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:learning/component/app_audio.dart';
 import 'package:learning/component/app_images.dart';
+import 'package:learning/component/cache_helper.dart';
+import 'package:learning/component/components.dart';
 import 'package:learning/component/styles.dart';
 import 'package:learning/models/exam_model.dart';
+import 'package:learning/screen/exam/exam_layout.dart';
 
-class ExamNumberAr extends StatefulWidget {
-  const ExamNumberAr({Key? key}) : super(key: key);
+class ScreenTwoAr extends StatefulWidget {
+  const ScreenTwoAr({Key? key}) : super(key: key);
 
   @override
-  State<ExamNumberAr> createState() => _ExamNumberArState();
+  State<ScreenTwoAr> createState() => _ScreenTwoArState();
 }
 
-class _ExamNumberArState extends State<ExamNumberAr> {
+class _ScreenTwoArState extends State<ScreenTwoAr> {
   final player = AudioPlayer();
   late List<ExamModel> items, items2;
   int score = 0;
+
   bool gameOver = true;
   void initGame() {
     gameOver = true;
     score = 0;
     items = [
-      ExamModel(AppOudio.ONE_AR, AppImages.one, '١'),
-      ExamModel(AppOudio.TOW_AR, AppImages.tow, '٢'),
-      ExamModel(AppOudio.THREE_AR, AppImages.three, '٣'),
-      ExamModel(AppOudio.FOUR_AR, AppImages.four, '٤'),
-      ExamModel(AppOudio.FIVE_AR, AppImages.five, '٥'),
-      ExamModel(AppOudio.SIX_AR, AppImages.six, '٦'),
-      ExamModel(AppOudio.SEVEN_AR, AppImages.seven, '٧'),
-      ExamModel(AppOudio.EIGTH_AR, AppImages.eigth, '٨'),
-      ExamModel(AppOudio.NINE_AR, AppImages.nine, '٩'),
-      ExamModel(AppOudio.TEN_AR, AppImages.ten, '١٠'),
+      ExamModel(AppOudio.ar11, AppImages.flower, 'ز'),
+      ExamModel(AppOudio.ar12, AppImages.hour, 'س'),
+      ExamModel(AppOudio.ar13, AppImages.sun, 'ش'),
+      ExamModel(AppOudio.ar14, AppImages.Hunter, 'ص'),
+      ExamModel(AppOudio.ar15, AppImages.officer, 'ض'),
+      ExamModel(AppOudio.ar16, AppImages.child, 'ط'),
+      ExamModel(AppOudio.ar17, AppImages.nail, 'ظ'),
+      ExamModel(AppOudio.ar18, AppImages.EYE, 'ع'),
+      ExamModel(AppOudio.ar19, AppImages.GAR, 'غ'),
+      ExamModel(AppOudio.ar20, AppImages.elephant, 'ف'),
     ];
     items2 = List<ExamModel>.from(items)..shuffle();
     items.shuffle();
@@ -66,7 +72,8 @@ class _ExamNumberArState extends State<ExamNumberAr> {
                 ),
                 if (items.isEmpty) ...[
                   gameOverText(context),
-                  againText(context),
+                  againText(context, 'دخول للاختبار مرة أخرى'),
+                
                 ],
               ],
             ],
@@ -76,15 +83,26 @@ class _ExamNumberArState extends State<ExamNumberAr> {
     );
   }
 
-  Container againText(BuildContext context) => Container(
+  @override
+  void dispose() {
+    if (score == 100 && idAr == 1) {
+      idAr++;
+      CacheHelper.saveData(key: 'idAr', value: idAr);
+      print(idAr);
+      print("iiiiiiiiiiiiiiiiiiiddddddddddddd");
+    }
+    super.dispose();
+  }
+
+  Container againText(BuildContext context, String text) => Container(
         height: MediaQuery.of(context).size.width / 5,
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.inversePrimary,
           borderRadius: BorderRadius.circular(8),
         ),
         child: TextButton(
-          child: const Text(
-            'دخول للاختبار مرة أخرى',
+          child: Text(
+            text,
             style: Styles.textStyle20,
           ),
           onPressed: () {
@@ -261,3 +279,4 @@ class BuildCircleAvatar extends StatelessWidget {
     );
   }
 }
+
