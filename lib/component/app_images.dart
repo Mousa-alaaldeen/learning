@@ -2,15 +2,17 @@
 
 class AppImages {
   static const String LETTER_AR = 'assets/images/ar.png';
-  static const String LETTER_EN = 'assets/images/ABC.png';
+  static const String LETTER_EN = 'assets/images/ABCD.png';
   static const String NUMBER_AR = 'assets/images/n.png';
   static const String ANIMALS = 'assets/images/animales.png';
-  static const String muslem = 'assets/images/mos-removebg-preview.png';
-  static const String NUMBER_EN = 'assets/images/number2.png';
+  static const String muslem =
+      'assets/images/2c547a9d-f296-4838-8c37-e7263b6db8ee-removebg-preview.png';
+  static const String NUMBER_EN = 'assets/images/number.png';
   static const String stories = 'assets/images/stories.png';
   static const String exam = 'assets/images/exam.png';
   static const String LOTTIE =
       'assets/animation_json/Animation - 1697383201047.json';
+  static const String fireworks = 'assets/animation_json/fireworks.json';
   static const String rabbit = 'assets/images/rabbit.png';
   static const String DUCK = 'assets/images/duck.png';
   static const String Crown = 'assets/images/Crown.png';
@@ -160,7 +162,7 @@ class AppImages {
   static const String en20 = 'assets/images/letter_en/20.jpeg';
   static const String en21 = 'assets/images/letter_en/21.jpeg';
   static const String en22 = 'assets/images/letter_en/22.jpeg';
-  static const String en23 = 'assets/images/letter_en/23.jpeg';
+  static const String en23 = 'assets/images/letter_en/23.jpg';
   static const String en24 = 'assets/images/letter_en/24.jpeg';
   static const String en25 = 'assets/images/letter_en/25.jpeg';
   static const String en26 = 'assets/images/letter_en/26.jpeg';
@@ -175,5 +177,12 @@ class AppImages {
   static const String letterEn = 'assets/images/exam/letterEn.jpg';
   static const String letterEn10 = 'assets/images/exam/letterEn10.jpg';
   static const String letterEn20 = 'assets/images/exam/letterEn20.jpg';
-   static const String letterEn30 = 'assets/images/exam/letterEn30.jpg';
+  static const String letterEn30 = 'assets/images/exam/letterEn30.jpg';
+  static const String book = 'assets/images/to.jpg';
+  static const String boy = 'assets/images/tesst-removebg-preview.png';
+  static const String PillarsOfIslam = 'assets/images/PillarsOfIslam.png';
+  static const String PillarsOfFaith = 'assets/images/Pillars_of_faith.png';
+  static const String Ablution = 'assets/images/Ablution.png';
+  static const String color = 'assets/images/colors.png';
+  static const String bakeColor = 'assets/images/bak_colors.jpeg';
 }

@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, unused_import
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +9,7 @@ import 'package:learning/component/components.dart';
 import 'package:learning/component/styles.dart';
 import 'package:learning/models/exam_model.dart';
 import 'package:learning/screen/exam/exam_layout.dart';
+import 'package:lottie/lottie.dart';
 
 class ScreenThreeEn extends StatefulWidget {
   const ScreenThreeEn({Key? key}) : super(key: key);
@@ -60,14 +61,19 @@ class _ScreenThreeEnState extends State<ScreenThreeEn> {
               if (gameOver) ...[
                 Row(
                   children: [
-                    const Spacer(),
                     buildItem1(),
-                    const Spacer(flex: 3),
+                    const Spacer(),
                     buildItem2(),
                   ],
                 ),
                 if (items.isEmpty) ...[
                   gameOverText(context),
+                  if (score == 60)
+                    Lottie.asset(
+                      AppImages.fireworks,
+                      height: MediaQuery.of(context).size.height * .4,
+                      fit: BoxFit.cover,
+                    ),
                   againText(context, 'دخول للاختبار مرة أخرى'),
                 ],
               ],
@@ -113,10 +119,7 @@ class _ScreenThreeEnState extends State<ScreenThreeEn> {
               padding: const EdgeInsets.all(8),
               child: Text(
                 'انتها الاختبار',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleLarge!
-                    .copyWith(color: Colors.red),
+                style: Styles.textStyle20.copyWith(color: Colors.red),
               ),
             ),
             Padding(
@@ -136,6 +139,7 @@ class _ScreenThreeEnState extends State<ScreenThreeEn> {
             builder: (context, candidateData, rejectedData) => Padding(
               padding: const EdgeInsets.only(bottom: 35),
               child: Container(
+                margin: const EdgeInsets.only(bottom: 4, left: 8),
                 height: MediaQuery.of(context).size.width / 3,
                 width: 100,
                 decoration: BoxDecoration(
@@ -236,7 +240,7 @@ class BuildScore extends StatelessWidget {
       child: Text.rich(TextSpan(children: [
         const TextSpan(
           text: 'النتيجه',
-          style: Styles.textStyle20,
+          style: Styles.textStyle25,
         ),
         TextSpan(
             text: ' : $score ',

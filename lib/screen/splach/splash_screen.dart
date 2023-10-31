@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:learning/component/app_images.dart';
 import 'package:learning/screen/home/home_screen.dart';
+import 'package:learning/screen/welcome_screen/welcom_screen.dart';
 import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -17,10 +18,10 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(
-      Duration(seconds: 3),
+      Duration(seconds: 2),
       () => Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (BuildContext context) => HomeScreen(),
+          builder: (BuildContext context) => WelcomScreen(),
         ),
       ),
     );
@@ -30,11 +31,9 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Align(
-        
         child: Lottie.asset(
           AppImages.LOTTIE,
-          
-          height: MediaQuery.of(context).size.height*.5,
+          height: MediaQuery.of(context).size.height * .5,
           fit: BoxFit.cover,
         ),
       ),

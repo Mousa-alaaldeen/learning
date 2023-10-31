@@ -6,14 +6,14 @@ import 'package:learning/component/widget/item_small.dart';
 import 'package:learning/component/styles.dart';
 import 'package:learning/screen/exam/exam_layout.dart';
 import 'package:learning/screen/home/cover_image.dart';
-import 'package:learning/screen/storeis/storeis_layout.dart';
+import 'package:learning/screen/en_screen/storeis/storeis_layout.dart';
 import 'package:learning/screen/animal_screen.dart/animal_screen.dart';
-import 'package:learning/screen/black_board/black_board.dart';
-import 'package:learning/screen/letter/letter_en_screen.dart';
-import 'package:learning/screen/letter/letter_screen.dart';
-import 'package:learning/screen/number/number_en_screen.dart';
-import 'package:learning/screen/number/number_screen.dart';
-import 'package:learning/screen/pillarsOfIslam/pillars_of_islam.dart';
+import 'package:learning/screen/ar_screen/black_board.dart';
+import 'package:learning/screen/en_screen/letter_en_screen.dart';
+import 'package:learning/screen/ar_screen/letter_screen.dart';
+import 'package:learning/screen/en_screen/number_en_screen.dart';
+import 'package:learning/screen/ar_screen/number_screen.dart';
+import 'package:learning/screen/islam/pillars_of_islam.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -153,7 +153,7 @@ class HomeScreen extends StatelessWidget {
                   onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => MyCustomWidget(),
+                      builder: (context) => StoreisScreen(),
                     ),
                   ),
                   color: Color.fromRGBO(194, 222, 220, 10),

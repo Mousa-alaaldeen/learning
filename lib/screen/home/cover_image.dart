@@ -10,7 +10,7 @@ class CoverImage extends StatelessWidget {
     return Image.asset(
       'assets/images/welcome.jpg',
       width: 10000,
-      height: MediaQuery.of(context).size.height * .3,
+      height: MediaQuery.of(context).size.height * .4,
     );
   }
 }

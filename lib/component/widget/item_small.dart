@@ -20,44 +20,30 @@ class ItemSmall extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: InkWell(
-        onTap: onTap,
-        child: Container(
-          padding: EdgeInsets.all(5),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: color,
-          ),
-          height: 300,
-          child: Column(children: [
-            Expanded(
-              child: Image.asset(
-                images,
-                width: MediaQuery.of(context).size.width,
-                fit: BoxFit.fill,
-              ),
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    text,
-                    style: Styles.textStyle25,
-                  ),
-                ),
-                Text(
-                  text2!,
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.onPrimary,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 22,
-                  ),
-                ),
-              ],
-            ),
-          ]),
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        width: (MediaQuery.of(context).size.width / 2) - 10,
+        margin: EdgeInsets.only(top: 10, left: 5, right: 5),
+        padding: EdgeInsets.all(5),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: color,
         ),
+        height: 300,
+        child: Column(children: [
+          Expanded(
+            child: Image.asset(
+              images,
+              width: MediaQuery.of(context).size.width,
+              fit: BoxFit.fill,
+            ),
+          ),
+          Text(
+            text,
+            style: Styles.textStyle25,
+          ),
+        ]),
       ),
     );
   }

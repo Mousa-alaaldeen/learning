@@ -4,6 +4,7 @@ import 'package:learning/component/app_audio.dart';
 import 'package:learning/component/app_images.dart';
 import 'package:learning/component/styles.dart';
 import 'package:learning/models/exam_model.dart';
+import 'package:lottie/lottie.dart';
 
 class ExamNumberAr extends StatefulWidget {
   const ExamNumberAr({Key? key}) : super(key: key);
@@ -58,14 +59,19 @@ class _ExamNumberArState extends State<ExamNumberAr> {
               if (gameOver) ...[
                 Row(
                   children: [
-                    const Spacer(),
                     buildItem1(),
-                    const Spacer(flex: 3),
+                    const Spacer(),
                     buildItem2(),
                   ],
                 ),
                 if (items.isEmpty) ...[
                   gameOverText(context),
+                  if (score == 100)
+                    Lottie.asset(
+                      AppImages.fireworks,
+                      height: MediaQuery.of(context).size.height * .4,
+                      fit: BoxFit.cover,
+                    ),
                   againText(context),
                 ],
               ],
@@ -100,10 +106,7 @@ class _ExamNumberArState extends State<ExamNumberAr> {
               padding: const EdgeInsets.all(8),
               child: Text(
                 'انتها الاختبار',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleLarge!
-                    .copyWith(color: Colors.red),
+                 style: Styles.textStyle20.copyWith(color: Colors.red),
               ),
             ),
             Padding(
@@ -123,6 +126,7 @@ class _ExamNumberArState extends State<ExamNumberAr> {
             builder: (context, candidateData, rejectedData) => Padding(
               padding: const EdgeInsets.only(bottom: 35),
               child: Container(
+                margin: const EdgeInsets.only(bottom: 4, left: 8),
                 height: MediaQuery.of(context).size.width / 3,
                 width: 100,
                 decoration: BoxDecoration(
@@ -170,7 +174,7 @@ class _ExamNumberArState extends State<ExamNumberAr> {
   Column buildItem1() => Column(
         children: items.map((item) {
           return Container(
-            margin: const EdgeInsets.all(8),
+            margin: const EdgeInsets.all(10),
             child: Draggable(
               data: item,
               childWhenDragging: Container(
@@ -223,7 +227,7 @@ class BuildScore extends StatelessWidget {
       child: Text.rich(TextSpan(children: [
         const TextSpan(
           text: 'النتيجه',
-          style: Styles.textStyle20,
+          style: Styles.textStyle25,
         ),
         TextSpan(
             text: ' : $score ',

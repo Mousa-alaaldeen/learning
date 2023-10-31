@@ -2,6 +2,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:learning/component/app_audio.dart';
 import 'package:learning/component/app_images.dart';
+import 'package:learning/component/components.dart';
 import 'package:learning/component/styles.dart';
 import 'package:learning/models/animal_model.dart';
 
@@ -13,8 +14,7 @@ class AnimalScreen extends StatefulWidget {
 }
 
 class _AnimalScreenState extends State<AnimalScreen> {
-  int selectedAnimalIndex = 0; // قيمة ابتدائية لا تحدد أي عنصر محدد
-
+  int selectedAnimalIndex = 0;
   final List<AnimalModel> animalsList = [
     AnimalModel(
       imagePath: AppImages.bird_oudio,
@@ -112,7 +112,7 @@ class _AnimalScreenState extends State<AnimalScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(158, 210, 190, 10),
+        backgroundColor: colors3,
         centerTitle: true,
         title: const Text('أصوات الحيوانات', style: Styles.textStyle25),
       ),
@@ -150,9 +150,7 @@ class _AnimalScreenState extends State<AnimalScreen> {
               await player.play(AssetSource(animalsList[index].soundPath));
             },
             child: Card(
-              color: selectedAnimalIndex == index
-                  ? const Color.fromRGBO(158, 210, 190, 10)
-                  : Colors.white,
+              color: selectedAnimalIndex == index ? colors3 : Colors.white,
               child: Column(
                 children: [
                   Expanded(child: Image.asset(animal.imagePath)),

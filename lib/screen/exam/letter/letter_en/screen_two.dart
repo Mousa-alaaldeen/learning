@@ -8,6 +8,7 @@ import 'package:learning/component/cache_helper.dart';
 import 'package:learning/component/components.dart';
 import 'package:learning/component/styles.dart';
 import 'package:learning/models/exam_model.dart';
+import 'package:lottie/lottie.dart';
 
 class ScreenTwoEn extends StatefulWidget {
   const ScreenTwoEn({Key? key}) : super(key: key);
@@ -63,14 +64,20 @@ class _ScreenTwoEnState extends State<ScreenTwoEn> {
               if (gameOver) ...[
                 Row(
                   children: [
-                    const Spacer(),
+                  
                     buildItem1(),
-                    const Spacer(flex: 3),
+                    const Spacer(),
                     buildItem2(),
                   ],
                 ),
                 if (items.isEmpty) ...[
                   gameOverText(context),
+                  if (score == 100)
+                    Lottie.asset(
+                      AppImages.fireworks,
+                      height: MediaQuery.of(context).size.height * .4,
+                      fit: BoxFit.cover,
+                    ),
                   againText(context, 'دخول للاختبار مرة أخرى'),
                 ],
               ],
@@ -83,7 +90,7 @@ class _ScreenTwoEnState extends State<ScreenTwoEn> {
 
   @override
   void dispose() {
-    if (score == 100 && idEn == 2) {
+    if (score == 100 && idEn == 1) {
       idEn++;
       CacheHelper.saveData(key: 'idEn', value: idEn);
       print(idEn);
@@ -116,10 +123,7 @@ class _ScreenTwoEnState extends State<ScreenTwoEn> {
               padding: const EdgeInsets.all(8),
               child: Text(
                 'انتها الاختبار',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleLarge!
-                    .copyWith(color: Colors.red),
+               style: Styles.textStyle20.copyWith(color: Colors.red),
               ),
             ),
             Padding(
@@ -138,7 +142,7 @@ class _ScreenTwoEnState extends State<ScreenTwoEn> {
           return DragTarget(
             builder: (context, candidateData, rejectedData) => Padding(
               padding: const EdgeInsets.only(bottom: 35),
-              child: Container(
+              child: Container(    margin: const EdgeInsets.only(bottom: 4, left: 8),
                 height: MediaQuery.of(context).size.width / 3,
                 width: 100,
                 decoration: BoxDecoration(
@@ -186,6 +190,7 @@ class _ScreenTwoEnState extends State<ScreenTwoEn> {
   Column buildItem1() => Column(
         children: items.map((item) {
           return Container(
+
             margin: const EdgeInsets.all(8),
             child: Draggable(
               data: item,
@@ -239,7 +244,7 @@ class BuildScore extends StatelessWidget {
       child: Text.rich(TextSpan(children: [
         const TextSpan(
           text: 'النتيجه',
-          style: Styles.textStyle20,
+          style: Styles.textStyle25,
         ),
         TextSpan(
             text: ' : $score ',

@@ -8,6 +8,7 @@ import 'package:learning/component/cache_helper.dart';
 import 'package:learning/component/components.dart';
 import 'package:learning/component/styles.dart';
 import 'package:learning/models/exam_model.dart';
+import 'package:lottie/lottie.dart';
 
 class ScreenOneEn extends StatefulWidget {
   const ScreenOneEn({Key? key}) : super(key: key);
@@ -63,14 +64,19 @@ class _ScreenOneEnState extends State<ScreenOneEn> {
               if (gameOver) ...[
                 Row(
                   children: [
-                    const Spacer(),
                     buildItem1(),
-                    const Spacer(flex: 3),
+                    const Spacer(),
                     buildItem2(),
                   ],
                 ),
                 if (items.isEmpty) ...[
                   gameOverText(context),
+                  if (score == 100)
+                    Lottie.asset(
+                      AppImages.fireworks,
+                      height: MediaQuery.of(context).size.height * .4,
+                      fit: BoxFit.cover,
+                    ),
                   againText(context, 'دخول للاختبار مرة أخرى'),
                 ],
               ],
@@ -116,10 +122,7 @@ class _ScreenOneEnState extends State<ScreenOneEn> {
               padding: const EdgeInsets.all(8),
               child: Text(
                 'انتها الاختبار',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleLarge!
-                    .copyWith(color: Colors.red),
+                  style: Styles.textStyle20.copyWith(color: Colors.red),
               ),
             ),
             Padding(
@@ -139,6 +142,7 @@ class _ScreenOneEnState extends State<ScreenOneEn> {
             builder: (context, candidateData, rejectedData) => Padding(
               padding: const EdgeInsets.only(bottom: 35),
               child: Container(
+                margin: const EdgeInsets.only(bottom: 4, left: 8),
                 height: MediaQuery.of(context).size.width / 3,
                 width: 100,
                 decoration: BoxDecoration(
@@ -239,7 +243,7 @@ class BuildScore extends StatelessWidget {
       child: Text.rich(TextSpan(children: [
         const TextSpan(
           text: 'النتيجه',
-          style: Styles.textStyle20,
+          style: Styles.textStyle25,
         ),
         TextSpan(
             text: ' : $score ',
