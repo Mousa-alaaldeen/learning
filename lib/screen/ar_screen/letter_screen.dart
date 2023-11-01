@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:learning/component/app_audio.dart';
 import 'package:learning/component/app_images.dart';
+import 'package:learning/component/components.dart';
 import 'package:learning/component/styles.dart';
 import 'package:learning/component/widget/build_list_tile.dart';
 import 'package:learning/models/number_model.dart';
@@ -53,7 +54,7 @@ class _NumberScreenState extends State<LetterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(255, 217, 183, 10),
+        backgroundColor: colors4,
         centerTitle: true,
         title: Text('الحروف العربيه', style: Styles.textStyle25),
       ),
@@ -77,7 +78,7 @@ class _NumberScreenState extends State<LetterScreen> {
                   flipAxis: FlipAxis.y,
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Color.fromRGBO(255, 217, 183, 10),
+                      color: colors4,
                       borderRadius: const BorderRadius.all(
                         Radius.circular(20),
                       ),

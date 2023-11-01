@@ -8,6 +8,7 @@ import 'package:learning/component/cache_helper.dart';
 import 'package:learning/component/components.dart';
 import 'package:learning/component/styles.dart';
 import 'package:learning/models/exam_model.dart';
+import 'package:learning/screen/home/screen.dart';
 import 'package:lottie/lottie.dart';
 
 class ScreenOneEn extends StatefulWidget {
@@ -122,7 +123,7 @@ class _ScreenOneEnState extends State<ScreenOneEn> {
               padding: const EdgeInsets.all(8),
               child: Text(
                 'انتها الاختبار',
-                  style: Styles.textStyle20.copyWith(color: Colors.red),
+                style: Styles.textStyle20.copyWith(color: Colors.red),
               ),
             ),
             Padding(
@@ -269,7 +270,11 @@ class BuildCircleAvatar extends StatelessWidget {
         alignment: Alignment.topRight,
         child: InkWell(
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const TesstScreen(),
+                  ));
             },
             child: const CircleAvatar(
               radius: 25,

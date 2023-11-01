@@ -1,8 +1,10 @@
 // ignore_for_file: constant_identifier_names
 
 class AppOudio {
+  static const String Welcome = 'audio/exam/Welcome.mp3';
   static const String trueExam = 'audio/exam/true.wav';
   static const String falseExame = 'audio/exam/tryAgain.wav';
+  static const String excellent = 'audio/exam/excellent.mp3';
   //number ar
   static const String ONE_AR = 'audio/number/one_ar.mp3';
   static const String TOW_AR = 'audio/number/tow_ar.mp3';

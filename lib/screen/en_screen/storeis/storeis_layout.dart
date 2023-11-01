@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:learning/component/app_images.dart';
+import 'package:learning/component/components.dart';
 import 'package:learning/component/styles.dart';
 import 'package:learning/models/storeis_model.dart';
 import 'package:learning/screen/en_screen/storeis/storeis_screen.dart';
@@ -75,7 +76,7 @@ class _StoreisScreenState extends State<StoreisScreen> {
     ];
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: const Color.fromRGBO(194, 222, 220, 10),
+          backgroundColor: colors3,
           title: const Text(
             'قصص باللغه الانجليزيه',
             style: Styles.textStyle25,

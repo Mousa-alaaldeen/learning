@@ -48,6 +48,7 @@ dependencies:
   level_map: ^0.2.0
   lottie: ^2.6.0
   path_drawing: ^1.0.1
+  progress_bar_steppers: ^0.0.2+2
   shared_preferences: ^2.2.2
   toggle_switch: ^2.1.0
   translator: ^0.1.7

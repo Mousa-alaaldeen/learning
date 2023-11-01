@@ -9,6 +9,7 @@ import 'package:flutter_drawing_board/paint_contents.dart';
 import 'package:flutter_drawing_board/paint_extension.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:learning/component/app_images.dart';
+import 'package:learning/component/components.dart';
 import 'package:learning/component/styles.dart';
 import 'package:learning/models/number_model.dart';
 
@@ -237,7 +238,7 @@ class _MyHomePageState extends State<DrawingScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: colors3,
         centerTitle: true,
         title: const Text(
           'كتابة الحروف العربيه',
@@ -289,6 +290,7 @@ class _MyHomePageState extends State<DrawingScreen> {
               children: [
                 CircleAvatar(
                   radius: 30,
+                  backgroundColor: colors3,
                   child: IconButton(
                     onPressed: () {
                       if (itemCount != 27) {
@@ -308,6 +310,7 @@ class _MyHomePageState extends State<DrawingScreen> {
                     _speak(letter[itemCount].title);
                   },
                   child: CircleAvatar(
+                    backgroundColor: colors3,
                     radius: 50,
                     child: Row(
                       children: [
@@ -326,6 +329,7 @@ class _MyHomePageState extends State<DrawingScreen> {
                 ),
                 CircleAvatar(
                   radius: 30,
+                  backgroundColor: colors3,
                   child: IconButton(
                     onPressed: () {
                       if (itemCount != 0) {

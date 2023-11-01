@@ -9,6 +9,8 @@ import 'package:learning/component/components.dart';
 import 'package:learning/component/styles.dart';
 import 'package:learning/models/exam_model.dart';
 import 'package:learning/screen/exam/exam_layout.dart';
+import 'package:learning/screen/home/screen.dart';
+import 'package:learning/tesst.dart';
 import 'package:lottie/lottie.dart';
 
 class ScreenThreeAr extends StatefulWidget {
@@ -268,7 +270,11 @@ class BuildCircleAvatar extends StatelessWidget {
         alignment: Alignment.topRight,
         child: InkWell(
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const TesstScreen(),
+                  ));
             },
             child: const CircleAvatar(
               radius: 25,

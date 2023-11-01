@@ -14,6 +14,16 @@ class AnimalScreen extends StatefulWidget {
 }
 
 class _AnimalScreenState extends State<AnimalScreen> {
+  @override
+  void initState() {
+    super.initState;
+    playWelcomeSound();
+  }
+
+  void playWelcomeSound() async {
+    await player.play(AssetSource(AppOudio.bird_oudio));
+  }
+
   int selectedAnimalIndex = 0;
   final List<AnimalModel> animalsList = [
     AnimalModel(
@@ -112,7 +122,7 @@ class _AnimalScreenState extends State<AnimalScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: colors3,
+        backgroundColor: colors5,
         centerTitle: true,
         title: const Text('أصوات الحيوانات', style: Styles.textStyle25),
       ),
@@ -150,7 +160,7 @@ class _AnimalScreenState extends State<AnimalScreen> {
               await player.play(AssetSource(animalsList[index].soundPath));
             },
             child: Card(
-              color: selectedAnimalIndex == index ? colors3 : Colors.white,
+              color: selectedAnimalIndex == index ? colors5 : Colors.white,
               child: Column(
                 children: [
                   Expanded(child: Image.asset(animal.imagePath)),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learning/tesst.dart';
+import 'package:learning/component/widget/vedio_screen.dart';
 
 class AblutionScreen extends StatelessWidget {
   const AblutionScreen({Key? key}) : super(key: key);
@@ -7,7 +7,7 @@ class AblutionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: MyHomePage(
+      body: VedioScreen(
         url: "assets/video/Ablution.mp4", text: 'تعلم الوضوء',
       ),
     );

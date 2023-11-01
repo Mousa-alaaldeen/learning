@@ -13,7 +13,6 @@ final List<Widget> examScreen = [
   const ExamLetterEn(),
 ];
 
-// List of StoreisModel data
 final List imageAndTextExam = [
   AppImages.examNumberAr,
   AppImages.examNumberEn,

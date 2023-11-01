@@ -1,4 +1,6 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:learning/component/app_audio.dart';
 import 'package:learning/screen/welcome_screen/img.dart';
 import 'package:learning/screen/welcome_screen/my_icon.dart';
 import 'package:learning/screen/welcome_screen/text_one.dart';
@@ -12,6 +14,19 @@ class WelcomScreen extends StatefulWidget {
 }
 
 class _WelcomScreenState extends State<WelcomScreen> {
+  final player = AudioPlayer();
+
+  @override
+  void initState() {
+    super.initState;
+    playWelcomeSound(); 
+  }
+
+  void playWelcomeSound() async {
+    await player.play(AssetSource(AppOudio
+        .Welcome)); 
+  }
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;

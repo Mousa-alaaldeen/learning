@@ -645,6 +645,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.7.3"
+  progress_bar_steppers:
+    dependency: "direct main"
+    description:
+      name: progress_bar_steppers
+      sha256: "7dd665ae7aa1f18eb199f544374cbc4605cddeb55f706f11e49a461e8ee13d6d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.2+2"
   pub_semver:
     dependency: transitive
     description:

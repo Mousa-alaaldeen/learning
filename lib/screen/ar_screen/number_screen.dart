@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:learning/component/app_audio.dart';
 import 'package:learning/component/app_images.dart';
+import 'package:learning/component/components.dart';
 import 'package:learning/component/styles.dart';
 import 'package:learning/component/widget/build_list_tile.dart';
 import 'package:learning/models/number_model.dart';
@@ -37,7 +38,7 @@ class _NumberScreenState extends State<NumberScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(200, 228, 178, 10),
+        backgroundColor: colors2,
         centerTitle: true,
         title: Text(' ألارقام العربيه', style: Styles.textStyle25),
       ),
@@ -61,7 +62,7 @@ class _NumberScreenState extends State<NumberScreen> {
                   flipAxis: FlipAxis.y,
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Color.fromRGBO(200, 228, 178, 10),
+                      color: colors2,
                       borderRadius: const BorderRadius.all(
                         Radius.circular(20),
                       ),

@@ -9,6 +9,7 @@ import 'package:learning/component/components.dart';
 import 'package:learning/component/styles.dart';
 import 'package:learning/models/exam_model.dart';
 import 'package:learning/screen/exam/exam_layout.dart';
+import 'package:learning/screen/home/screen.dart';
 import 'package:lottie/lottie.dart';
 
 class ScreenThreeEn extends StatefulWidget {
@@ -22,6 +23,7 @@ class _ScreenThreeEnState extends State<ScreenThreeEn> {
   final player = AudioPlayer();
   late List<ExamModel> items, items2;
   int score = 0;
+  
 
   bool gameOver = true;
   void initGame() {
@@ -115,6 +117,7 @@ class _ScreenThreeEnState extends State<ScreenThreeEn> {
   Center gameOverText(BuildContext context) => Center(
         child: Column(
           children: [
+            
             Padding(
               padding: const EdgeInsets.all(8),
               child: Text(
@@ -122,13 +125,18 @@ class _ScreenThreeEnState extends State<ScreenThreeEn> {
                 style: Styles.textStyle20.copyWith(color: Colors.red),
               ),
             ),
+           
+            
             Padding(
               padding: const EdgeInsets.all(8),
               child: Text(
                 score == 100 ? 'رائع' : 'قدم الامتحان مرة أخرى',
                 style: Styles.textStyle20,
               ),
+              
+
             ),
+            
           ],
         ),
       );
@@ -266,7 +274,11 @@ class BuildCircleAvatar extends StatelessWidget {
         alignment: Alignment.topRight,
         child: InkWell(
             onTap: () {
-              Navigator.pop(context);
+             Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const TesstScreen(),
+                  ));
             },
             child: const CircleAvatar(
               radius: 25,
@@ -278,3 +290,4 @@ class BuildCircleAvatar extends StatelessWidget {
     );
   }
 }
+  
