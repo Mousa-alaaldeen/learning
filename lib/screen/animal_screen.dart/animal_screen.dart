@@ -169,13 +169,14 @@ class _AnimalScreenState extends State<AnimalScreen> {
                     style: Styles.textStyle20,
                   ),
                   Align(
-                      alignment: Alignment.bottomLeft,
-                      child: selectedAnimalIndex == index
-                          ? const Icon(Icons.volume_up_outlined)
-                          : Icon(
-                              Icons.abc_outlined,
-                              color: Colors.grey.shade100,
-                            )),
+                    alignment: Alignment.bottomLeft,
+                    child: selectedAnimalIndex == index
+                        ? const Icon(Icons.volume_up_outlined)
+                        : Icon(
+                            Icons.abc_outlined,
+                            color: Colors.grey.shade100,
+                          ),
+                  ),
                 ],
               ),
             ),

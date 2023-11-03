@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learning/component/app_images.dart';
 import 'package:learning/component/components.dart';
 import 'package:learning/component/styles.dart';
+import 'package:learning/component/widget/build_steppers_screen.dart';
 import 'package:learning/screen/exam/letter/letter_en/screen_three.dart';
 import 'package:learning/screen/exam/letter/letter_en/screen_two.dart';
 import 'package:learning/screen/exam/letter/letter_en/secreen_one.dart';
@@ -46,7 +47,7 @@ class _ExamLetterEnState extends State<ExamLetterEn> {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                             builder: (context) => const ScreenOneEn(),
@@ -79,7 +80,7 @@ class _ExamLetterEnState extends State<ExamLetterEn> {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                             builder: (context) => const ScreenTwoEn(),
@@ -112,7 +113,7 @@ class _ExamLetterEnState extends State<ExamLetterEn> {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                             builder: (context) => const ScreenThreeEn(),
@@ -139,52 +140,7 @@ class _ExamLetterEnState extends State<ExamLetterEn> {
             const Text('اختبارات الحروف الانجليزيه', style: Styles.textStyle25),
         centerTitle: true,
       ),
-      body: SafeArea(
-        child: CustomScrollView(
-          slivers: [
-            SliverToBoxAdapter(
-              child: Steppers(
-                direction: StepperDirection.horizontal,
-                labels: stepsData,
-                currentStep: currentStep,
-                stepBarStyle: StepperStyle(
-                  maxLineLabel: 1,
-                ),
-              ),
-            ),
-            const SliverToBoxAdapter(
-              child: SizedBox(
-                height: 40,
-              ),
-            ),
-            const SliverToBoxAdapter(
-              child: Center(
-                child: Text('الاختبارات', style: Styles.textStyle25),
-              ),
-            ),
-            const SliverToBoxAdapter(
-              child: SizedBox(
-                height: 16,
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: Steppers(
-                direction: StepperDirection.vertical,
-                labels: stepsData,
-                currentStep: currentStep,
-                stepBarStyle: StepperStyle(
-                  maxLineLabel: 2,
-                ),
-              ),
-            ),
-            const SliverToBoxAdapter(
-              child: SizedBox(
-                height: 16,
-              ),
-            ),
-          ],
-        ),
-      ),
+      body: BuildSteppersScreen(stepsData: stepsData, currentStep: currentStep),
     );
   }
 }

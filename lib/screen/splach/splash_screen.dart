@@ -4,7 +4,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:learning/component/app_images.dart';
-import 'package:learning/screen/home/home_screen.dart';
 import 'package:learning/screen/welcome_screen/welcom_screen.dart';
 import 'package:lottie/lottie.dart';
 

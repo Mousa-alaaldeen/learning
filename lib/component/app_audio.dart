@@ -5,6 +5,7 @@ class AppOudio {
   static const String trueExam = 'audio/exam/true.wav';
   static const String falseExame = 'audio/exam/tryAgain.wav';
   static const String excellent = 'audio/exam/excellent.mp3';
+  static const String weekDays = 'audio/letter_en/WeekDays.mp3';
   //number ar
   static const String ONE_AR = 'audio/number/one_ar.mp3';
   static const String TOW_AR = 'audio/number/tow_ar.mp3';
@@ -47,6 +48,7 @@ class AppOudio {
   static const String bear = 'audio/animales/bear.mp3';
   static const String horse = 'audio/animales/horse.mp3';
   //letter ar
+  static const String letterAr = 'audio/letter_ar/letter_ar.mp3';
   static const String ar1 = 'audio/letter_ar/1.mp3';
   static const String ar2 = 'audio/letter_ar/2.mp3';
   static const String ar3 = 'audio/letter_ar/3.mp3';

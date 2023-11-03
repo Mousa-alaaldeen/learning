@@ -6,6 +6,8 @@ import 'package:learning/component/components.dart';
 
 import 'package:learning/screen/splach/splash_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:learning/screen/welcome_screen/welcom_screen.dart';
+import 'package:learning/tesst.dart';
 import 'generated/l10n.dart';
 
 void main() async {
@@ -45,7 +47,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: SplashScreen(),
+      home: WelcomScreen(),
     );
   }
 }

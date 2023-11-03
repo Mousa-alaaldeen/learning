@@ -7,10 +7,14 @@ import 'package:learning/component/app_images.dart';
 import 'package:learning/component/cache_helper.dart';
 import 'package:learning/component/components.dart';
 import 'package:learning/component/styles.dart';
+import 'package:learning/component/widget/build_game_over_text.dart';
 import 'package:learning/models/exam_model.dart';
 import 'package:learning/screen/exam/exam_layout.dart';
+import 'package:learning/screen/exam/letter/letter_en/layout_screen.dart';
 import 'package:learning/screen/home/screen.dart';
 import 'package:lottie/lottie.dart';
+
+import '../../../../component/widget/build_circle_avatar.dart';
 
 class ScreenThreeEn extends StatefulWidget {
   const ScreenThreeEn({Key? key}) : super(key: key);
@@ -23,7 +27,6 @@ class _ScreenThreeEnState extends State<ScreenThreeEn> {
   final player = AudioPlayer();
   late List<ExamModel> items, items2;
   int score = 0;
-  
 
   bool gameOver = true;
   void initGame() {
@@ -56,27 +59,195 @@ class _ScreenThreeEnState extends State<ScreenThreeEn> {
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
-          child: Column(
+          child: Stack(
             children: [
-              const BuildCircleAvatar(),
-              BuildScore(score: score),
               if (gameOver) ...[
-                Row(
+                Column(
                   children: [
-                    buildItem1(),
-                    const Spacer(),
-                    buildItem2(),
+                    BuildCircleAvatar(
+                      onTap: () {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ExamLetterEn(),
+                            ));
+                      },
+                    ),
+                    BuildScore(score: score),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width / 2,
+                          height: MediaQuery.of(context).size.height,
+                          child: GridView(
+                            shrinkWrap: true,
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 1),
+                            children: items.map((item) {
+                              return Container(
+                                margin: const EdgeInsets.all(20),
+                                child: Draggable(
+                                  data: item,
+                                  childWhenDragging: Container(
+                                    height: 190,
+                                    width: 150,
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey.withOpacity(0.3),
+                                      borderRadius: BorderRadius.circular(10),
+                                      image: DecorationImage(
+                                          image: AssetImage(item.img),
+                                          fit: BoxFit.fill),
+                                    ),
+                                  ),
+                                  feedback: Container(
+                                    height: 200,
+                                    width: 200,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      image: DecorationImage(
+                                          image: AssetImage(item.img),
+                                          fit: BoxFit.fill),
+                                    ),
+                                  ),
+                                  child: Container(
+                                    height: 150,
+                                    width:
+                                        MediaQuery.of(context).size.width / 3,
+                                    decoration: BoxDecoration(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .secondary,
+                                      borderRadius: BorderRadius.circular(10),
+                                      image: DecorationImage(
+                                          image: AssetImage(item.img),
+                                          fit: BoxFit.fill),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                        if (items.isNotEmpty)
+                          Padding(
+                            padding: const EdgeInsets.only(top: 40),
+                            child: Lottie.asset(
+                              'assets/animation_json/arroe.json',
+                              fit: BoxFit.cover,
+                              width: MediaQuery.of(context).size.width / 7,
+                            ),
+                          ),
+                        const Spacer(),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width / 4,
+                          height: MediaQuery.of(context).size.height,
+                          child: GridView(
+                            shrinkWrap: true,
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 1),
+                            children: items2.map((item) {
+                              return DragTarget(
+                                builder:
+                                    (context, candidateData, rejectedData) =>
+                                        Padding(
+                                  padding: const EdgeInsets.only(bottom: 5),
+                                  child: Container(
+                                    margin: const EdgeInsets.only(
+                                        bottom: 12, left: 8),
+                                    height:
+                                        MediaQuery.of(context).size.width / 3,
+                                    width: 100,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: item.accepting
+                                          ? Colors.grey[200]
+                                          : Theme.of(context)
+                                              .colorScheme
+                                              .primaryContainer,
+                                    ),
+                                    child: Center(
+                                      child: Text(
+                                        item.value,
+                                        style: Styles.textStyle25,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                onAccept: (ExamModel receivedItem) {
+                                  if (item.value == receivedItem.value) {
+                                    setState(() {
+                                      items.remove(receivedItem);
+                                      items2.remove(item);
+                                    });
+                                    score += 10;
+                                    player.play(AssetSource(AppOudio.trueExam));
+                                    item.accepting = false;
+                                  } else {
+                                    setState(() {
+                                      score -= 5;
+                                      item.accepting = false;
+                                      player.play(
+                                          AssetSource(AppOudio.falseExame));
+                                    });
+                                  }
+                                },
+                                onWillAccept: (data) {
+                                  setState(() => item.accepting = true);
+                                  return true;
+                                },
+                                onLeave: (data) {
+                                  setState(() => item.accepting = false);
+                                },
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
                 if (items.isEmpty) ...[
-                  gameOverText(context),
-                  if (score == 60)
-                    Lottie.asset(
-                      AppImages.fireworks,
-                      height: MediaQuery.of(context).size.height * .4,
-                      fit: BoxFit.cover,
-                    ),
-                  againText(context, 'دخول للاختبار مرة أخرى'),
+                  Column(
+                    children: [
+                      BuildCircleAvatar(
+                        onTap: () {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ExamLetterEn(),
+                              ));
+                        },
+                      ),
+                      BuildScore(score: score),
+                      BuildGameOverText(score: score),
+                      if (score == 60)
+                        Lottie.asset(
+                          AppImages.fireworks,
+                          height: MediaQuery.of(context).size.height * .4,
+                          fit: BoxFit.cover,
+                        ),
+                      Container(
+                        height: MediaQuery.of(context).size.width / 5,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.inversePrimary,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: TextButton(
+                          child: const Text(
+                            'دخول للاختبار مرة أخرى',
+                            style: Styles.textStyle20,
+                          ),
+                          onPressed: () {
+                            setState(initGame);
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ],
             ],
@@ -96,141 +267,6 @@ class _ScreenThreeEnState extends State<ScreenThreeEn> {
     }
     super.dispose();
   }
-
-  Container againText(BuildContext context, String text) => Container(
-        height: MediaQuery.of(context).size.width / 5,
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.inversePrimary,
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: TextButton(
-          child: Text(
-            text,
-            style: Styles.textStyle20,
-          ),
-          onPressed: () {
-            setState(initGame);
-          },
-        ),
-      );
-
-  Center gameOverText(BuildContext context) => Center(
-        child: Column(
-          children: [
-            
-            Padding(
-              padding: const EdgeInsets.all(8),
-              child: Text(
-                'انتها الاختبار',
-                style: Styles.textStyle20.copyWith(color: Colors.red),
-              ),
-            ),
-           
-            
-            Padding(
-              padding: const EdgeInsets.all(8),
-              child: Text(
-                score == 100 ? 'رائع' : 'قدم الامتحان مرة أخرى',
-                style: Styles.textStyle20,
-              ),
-              
-
-            ),
-            
-          ],
-        ),
-      );
-
-  Column buildItem2() => Column(
-        children: items2.map((item) {
-          return DragTarget(
-            builder: (context, candidateData, rejectedData) => Padding(
-              padding: const EdgeInsets.only(bottom: 35),
-              child: Container(
-                margin: const EdgeInsets.only(bottom: 4, left: 8),
-                height: MediaQuery.of(context).size.width / 3,
-                width: 100,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: item.accepting
-                      ? Colors.grey[200]
-                      : Theme.of(context).colorScheme.primaryContainer,
-                ),
-                child: Center(
-                  child: Text(
-                    item.value,
-                    style: Styles.textStyle25,
-                  ),
-                ),
-              ),
-            ),
-            onAccept: (ExamModel receivedItem) {
-              if (item.value == receivedItem.value) {
-                setState(() {
-                  items.remove(receivedItem);
-                  items2.remove(item);
-                });
-                score += 10;
-                player.play(AssetSource(AppOudio.trueExam));
-                item.accepting = false;
-              } else {
-                setState(() {
-                  score -= 5;
-                  item.accepting = false;
-                  player.play(AssetSource(AppOudio.falseExame));
-                });
-              }
-            },
-            onWillAccept: (data) {
-              setState(() => item.accepting = true);
-              return true;
-            },
-            onLeave: (data) {
-              setState(() => item.accepting = false);
-            },
-          );
-        }).toList(),
-      );
-
-  Column buildItem1() => Column(
-        children: items.map((item) {
-          return Container(
-            margin: const EdgeInsets.all(8),
-            child: Draggable(
-              data: item,
-              childWhenDragging: Container(
-                height: 190,
-                width: 150,
-                decoration: BoxDecoration(
-                  color: Colors.grey.withOpacity(0.3),
-                  borderRadius: BorderRadius.circular(10),
-                  image: DecorationImage(
-                      image: AssetImage(item.img), fit: BoxFit.fill),
-                ),
-              ),
-              feedback: Container(
-                height: 200,
-                width: 200,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  image: DecorationImage(
-                      image: AssetImage(item.img), fit: BoxFit.fill),
-                ),
-              ),
-              child: Container(
-                height: 150,
-                width: MediaQuery.of(context).size.width / 3,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.secondary,
-                  borderRadius: BorderRadius.circular(10),
-                  image: DecorationImage(
-                      image: AssetImage(item.img), fit: BoxFit.fill),
-                ),
-              ),
-            ),
-          );
-        }).toList(),
-      );
 }
 
 class BuildScore extends StatelessWidget {
@@ -260,34 +296,3 @@ class BuildScore extends StatelessWidget {
     );
   }
 }
-
-class BuildCircleAvatar extends StatelessWidget {
-  const BuildCircleAvatar({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Align(
-        alignment: Alignment.topRight,
-        child: InkWell(
-            onTap: () {
-             Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const TesstScreen(),
-                  ));
-            },
-            child: const CircleAvatar(
-              radius: 25,
-              child: Icon(
-                Icons.keyboard_arrow_right_sharp,
-              ),
-            )),
-      ),
-    );
-  }
-}
-  

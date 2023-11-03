@@ -7,6 +7,7 @@ class AppImages {
   static const String ANIMALS = 'assets/images/animales.png';
   static const String muslem =
       'assets/images/2c547a9d-f296-4838-8c37-e7263b6db8ee-removebg-preview.png';
+  static const String WeekDays = 'assets/images/week_days.jpg';
   static const String NUMBER_EN = 'assets/images/number.png';
   static const String stories = 'assets/images/stories.png';
   static const String exam = 'assets/images/exam.png';

@@ -6,6 +6,7 @@ import 'package:learning/component/widget/item_small.dart';
 import 'package:learning/screen/en_screen/letter_en_screen.dart';
 import 'package:learning/screen/en_screen/number_en_screen.dart';
 import 'package:learning/screen/en_screen/storeis/storeis_layout.dart';
+import 'package:learning/screen/en_screen/week_days.dart';
 
 class EnScreen extends StatefulWidget {
   const EnScreen({Key? key}) : super(key: key);
@@ -39,7 +40,7 @@ class _EnScreenState extends State<EnScreen> {
                         builder: (context) => const NumberEnScreen(),
                       ),
                     ),
-                    color: colors5,
+                    color: colors4,
                     text: 'الأرقام الإنجليزيه',
                     images: AppImages.NUMBER_EN,
                   ),
@@ -58,16 +59,31 @@ class _EnScreenState extends State<EnScreen> {
               ),
             ),
             SliverToBoxAdapter(
-              child: ItemSmall(
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const StoreisScreen(),
+              child: Row(
+                children: [
+                  ItemSmall(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const StoreisScreen(),
+                      ),
+                    ),
+                    color: colors5,
+                    text: 'قصص باللغه الإنجليزيه',
+                    images: AppImages.stories,
                   ),
-                ),
-                color: colors3,
-                text: 'قصص باللغه الإنجليزيه',
-                images: AppImages.stories,
+                  ItemSmall(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const WeekDaysScreen(),
+                      ),
+                    ),
+                    color: colors3,
+                    text: 'ايام الاسبوع',
+                    images: AppImages.WeekDays,
+                  ),
+                ],
               ),
             ),
           ],

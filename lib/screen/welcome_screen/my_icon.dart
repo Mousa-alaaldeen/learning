@@ -1,4 +1,3 @@
-
 import 'package:animator/animator.dart';
 import 'package:flutter/material.dart';
 import 'package:learning/screen/home/screen.dart';

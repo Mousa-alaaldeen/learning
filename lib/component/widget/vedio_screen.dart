@@ -1,17 +1,17 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:appinio_video_player/appinio_video_player.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:learning/component/app_images.dart';
-import 'package:learning/component/components.dart';
-import 'package:learning/component/styles.dart';
 
 class VedioScreen extends StatefulWidget {
   final String url;
   final String text;
-  const VedioScreen({Key? key, required this.url, required this.text}) : super(key: key);
+
+  const VedioScreen({
+    Key? key,
+    required this.url,
+    required this.text,
+  }) : super(key: key);
 
   @override
   State<VedioScreen> createState() => _VedioScreenState();
@@ -21,7 +21,6 @@ class _VedioScreenState extends State<VedioScreen> {
   late VideoPlayerController _videoPlayerController;
 
   late CustomVideoPlayerController _customVideoPlayerController;
-  late CustomVideoPlayerWebController _customVideoPlayerWebController;
 
   final CustomVideoPlayerSettings _customVideoPlayerSettings =
       const CustomVideoPlayerSettings(showSeekButtons: true);
@@ -48,62 +47,37 @@ class _VedioScreenState extends State<VedioScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      child: SafeArea(
-        child: Scaffold(
-          backgroundColor: colors5,
-          body: Center(
-            child: Stack(
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+        child: Stack(
+          children: [
+            Column(
               children: [
-                SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height,
-                  child: Image.asset(
-                    AppImages.book,
-                    fit: BoxFit.fill,
+                Center(
+                  child: SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.3,
+                    child: Stack(
+                      children: [
+                        CustomVideoPlayer(
+                          customVideoPlayerController:
+                              _customVideoPlayerController,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height * 0.4,
+                  height: MediaQuery.of(context).size.height * 0.6,
                   child: Image.asset(
-                    AppImages.boy,
+                    widget.text,
                     fit: BoxFit.contain,
                   ),
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Center(
-                      child: SizedBox(
-                        height: MediaQuery.of(context).size.height / 5.1,
-                        width: MediaQuery.of(context).size.height / 2.9,
-                        child: kIsWeb
-                            ? Expanded(
-                                child: CustomVideoPlayerWeb(
-                                  customVideoPlayerWebController:
-                                      _customVideoPlayerWebController,
-                                ),
-                              )
-                            : CustomVideoPlayer(
-                                customVideoPlayerController:
-                                    _customVideoPlayerController,
-                              ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    Text(
-                     widget.text,
-                      style:
-                          Styles.textStyle25.copyWith(color: Colors.cyan[800]),
-                    ),
-                  ],
-                ),
               ],
             ),
-          ),
+          ],
         ),
       ),
     );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learning/component/app_images.dart';
 import 'package:learning/component/components.dart';
 import 'package:learning/component/styles.dart';
+import 'package:learning/component/widget/build_steppers_screen.dart';
 import 'package:learning/screen/exam/letter/letterAr/screen_one.dart';
 import 'package:learning/screen/exam/letter/letterAr/screen_three.dart';
 import 'package:learning/screen/exam/letter/letterAr/screen_two.dart';
@@ -29,7 +30,6 @@ class _ExamLetterArState extends State<ExamLetterAr> {
       StepperData(
         label: 'الاختبار 1',
         description: '',
-        //  "اختبار الحروف من أ-ز",
         child: id >= 0
             ? Column(
                 children: [
@@ -46,7 +46,7 @@ class _ExamLetterArState extends State<ExamLetterAr> {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                             builder: (context) => const ScreenOneAr(),
@@ -79,7 +79,7 @@ class _ExamLetterArState extends State<ExamLetterAr> {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                             builder: (context) => const ScreenTwoAr(),
@@ -112,7 +112,7 @@ class _ExamLetterArState extends State<ExamLetterAr> {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                             builder: (context) => const ScreenThreeAr(),
@@ -138,55 +138,7 @@ class _ExamLetterArState extends State<ExamLetterAr> {
         title: const Text('اختبارات الحروف العربيه', style: Styles.textStyle25),
         centerTitle: true,
       ),
-      body: SafeArea(
-        child: CustomScrollView(
-          slivers: [
-            SliverToBoxAdapter(
-              child: Steppers(
-                direction: StepperDirection.horizontal,
-                labels: stepsData,
-                currentStep: currentStep,
-                stepBarStyle: StepperStyle(
-                  maxLineLabel: 1,
-                ),
-              ),
-            ),
-            const SliverToBoxAdapter(
-              child: SizedBox(
-                height: 40,
-              ),
-            ),
-            const SliverToBoxAdapter(
-              child: Center(
-                child: Text(
-                  'الاختبارات',
-                  style: Styles.textStyle25,
-                ),
-              ),
-            ),
-            const SliverToBoxAdapter(
-              child: SizedBox(
-                height: 16,
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: Steppers(
-                direction: StepperDirection.vertical,
-                labels: stepsData,
-                currentStep: currentStep,
-                stepBarStyle: StepperStyle(
-                  maxLineLabel: 2,
-                ),
-              ),
-            ),
-            const SliverToBoxAdapter(
-              child: SizedBox(
-                height: 16,
-              ),
-            ),
-          ],
-        ),
-      ),
+      body: BuildSteppersScreen(stepsData: stepsData, currentStep: currentStep),
     );
   }
 }

@@ -18,6 +18,16 @@ class LetterScreen extends StatefulWidget {
 }
 
 class _NumberScreenState extends State<LetterScreen> {
+  @override
+  void initState() {
+    super.initState;
+    playWelcomeSound();
+  }
+
+  void playWelcomeSound() async {
+    await player.play(AssetSource(AppOudio.letterAr));
+  }
+
   final List<NumberModel> letter = [
     NumberModel(AppOudio.ar1, AppImages.rabbit, 'أ', 'أسد'),
     NumberModel(AppOudio.ar2, AppImages.DUCK, 'ب', 'بطة'),
@@ -85,10 +95,9 @@ class _NumberScreenState extends State<LetterScreen> {
                     ),
                     margin: EdgeInsets.all(10),
                     child: BuildListTile(
-                      subtitle: '', //letter[index].subtitle,
+                      subtitle: '',
                       images: letter[index].images,
-                      title: '', //letter[index].title,
-
+                      title: '',
                       url: () async {
                         setState(() {
                           selectedAnimalIndex = index;
