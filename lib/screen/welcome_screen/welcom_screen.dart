@@ -19,12 +19,11 @@ class _WelcomScreenState extends State<WelcomScreen> {
   @override
   void initState() {
     super.initState;
-    playWelcomeSound(); 
+    playWelcomeSound();
   }
 
   void playWelcomeSound() async {
-    await player.play(AssetSource(AppOudio
-        .Welcome)); 
+    await player.play(AssetSource(AppOudio.Welcome));
   }
 
   @override

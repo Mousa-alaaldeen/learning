@@ -4,9 +4,11 @@ import 'package:learning/component/components.dart';
 import 'package:learning/component/styles.dart';
 import 'package:learning/component/widget/item_small.dart';
 import 'package:learning/screen/islam/ablution_screen.dart';
+import 'package:learning/screen/islam/azan_screen.dart';
 
 import 'package:learning/screen/islam/pillars_of_faith.dart';
 import 'package:learning/screen/islam/pillars_of_islam.dart';
+import 'package:learning/screen/islam/tashahhud_screen.dart';
 
 class IslamScreen extends StatefulWidget {
   const IslamScreen({Key? key}) : super(key: key);
@@ -63,12 +65,40 @@ class _IslamScreenState extends State<IslamScreen> {
                 onTap: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const AblutionScreen(),
+                    builder: (context) => const AzanScreen(),
                   ),
                 ),
-                color: colors2,
-                text: "تعلم الوضوء",
-                images: AppImages.Ablution,
+                color: colors4,
+                text: 'الاذان و دعاء الاذان',
+                images: AppImages.azan,
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Row(
+                children: [
+                  ItemSmall(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AblutionScreen(),
+                      ),
+                    ),
+                    color: colors2,
+                    text: "تعلم الوضوء",
+                    images: AppImages.Ablution,
+                  ),
+                  ItemSmall(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const TashahhudScreen(),
+                      ),
+                    ),
+                    color: colors1,
+                    text: "التشهد و الصلاة الابراهميه",
+                    images: AppImages.tashahhud,
+                  ),
+                ],
               ),
             ),
           ],

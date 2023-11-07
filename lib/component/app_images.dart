@@ -182,6 +182,8 @@ class AppImages {
   static const String book = 'assets/images/to.jpg';
   static const String boy = 'assets/images/tesst-removebg-preview.png';
   static const String PillarsOfIslam = 'assets/images/PillarsOfIslam.png';
+  static const String tashahhud = 'assets/images/tashahhud.png';
+  static const String azan = 'assets/images/azan.png';
   static const String PillarsOfFaith = 'assets/images/Pillars_of_faith.png';
   static const String Ablution = 'assets/images/Ablution.png';
   static const String color = 'assets/images/colors.png';

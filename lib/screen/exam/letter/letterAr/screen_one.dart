@@ -259,32 +259,33 @@ class _ScreenOneArState extends State<ScreenOneAr> {
                               ),
                             ),
                           ),
-                          Expanded(
-                            child: Container(
-                              margin: const EdgeInsets.all(10),
-                              height: MediaQuery.of(context).size.width / 5,
-                              decoration: BoxDecoration(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .inversePrimary,
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: TextButton(
-                                child: const Text(
-                                  'الدخول الى المرحله التاليه',
-                                  style: Styles.textStyle20,
+                          if (score == 100)
+                            Expanded(
+                              child: Container(
+                                margin: const EdgeInsets.all(10),
+                                height: MediaQuery.of(context).size.width / 5,
+                                decoration: BoxDecoration(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .inversePrimary,
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
-                                onPressed: () {
-                                  Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            const ScreenTwoAr(),
-                                      ));
-                                },
+                                child: TextButton(
+                                  child: const Text(
+                                    'الدخول الى المرحله التاليه',
+                                    style: Styles.textStyle20,
+                                  ),
+                                  onPressed: () {
+                                    Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              const ScreenTwoAr(),
+                                        ));
+                                  },
+                                ),
                               ),
                             ),
-                          ),
                         ],
                       ),
                     ],

@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, override_on_non_overriding_member
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
@@ -19,14 +19,14 @@ class LetterScreen extends StatefulWidget {
 
 class _NumberScreenState extends State<LetterScreen> {
   @override
-  void initState() {
-    super.initState;
-    playWelcomeSound();
-  }
+  // void initState() {
+  //   super.initState;
+  //   playWelcomeSound();
+  // }
 
-  void playWelcomeSound() async {
-    await player.play(AssetSource(AppOudio.letterAr));
-  }
+  // void playWelcomeSound() async {
+  //   await player.play(AssetSource(AppOudio.letterAr));
+  // }
 
   final List<NumberModel> letter = [
     NumberModel(AppOudio.ar1, AppImages.rabbit, 'أ', 'أسد'),

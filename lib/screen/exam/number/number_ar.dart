@@ -6,7 +6,7 @@ import 'package:learning/component/styles.dart';
 import 'package:learning/component/widget/build_circle_avatar.dart';
 import 'package:learning/component/widget/build_game_over_text.dart';
 import 'package:learning/models/exam_model.dart';
-import 'package:learning/screen/exam/exam_layout.dart';
+
 import 'package:lottie/lottie.dart';
 
 class ExamNumberAr extends StatefulWidget {

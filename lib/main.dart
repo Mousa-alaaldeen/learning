@@ -1,17 +1,24 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, depend_on_referenced_packages, avoid_print
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, depend_on_referenced_packages, avoid_print, unused_import
 
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+
 import 'package:learning/component/cache_helper.dart';
 import 'package:learning/component/components.dart';
 
-import 'package:learning/screen/splach/splash_screen.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:learning/screen/welcome_screen/welcom_screen.dart';
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:learning/tesst.dart';
 import 'generated/l10n.dart';
 
 void main() async {
+  //var devices=["2FF82A9EE01612D6547B4B068B80E73B"];
   WidgetsFlutterBinding.ensureInitialized();
+  // await MobileAds.instance.initialize();
+   Admob.initialize();
+  //  RequestConfiguration requestConfiguration=RequestConfiguration(testDeviceIds: devices);
+  //  MobileAds.instance.updateRequestConfiguration(requestConfiguration);
   await CacheHelper.init();
   if (CacheHelper.getData(key: 'idAr') != null) {
     idAr = CacheHelper.getData(key: 'idAr');
@@ -47,7 +54,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: WelcomScreen(),
+      home: MyMaterialApp(),
     );
   }
 }

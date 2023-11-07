@@ -262,6 +262,7 @@ class _ScreenTwoArState extends State<ScreenTwoAr> {
                               ),
                             ),
                           ),
+                            if (score == 100)
                           Expanded(
                             child: Container(
                               margin: const EdgeInsets.all(10),
