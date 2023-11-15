@@ -14,6 +14,7 @@ import 'package:learning/screen/colors/colora_screen.dart';
 import 'package:learning/screen/en_screen/en_screen.dart';
 import 'package:learning/screen/exam/exam_layout.dart';
 import 'package:learning/screen/islam/islam_screen.dart';
+import 'package:learning/test/ad.dart';
 
 class TesstScreen extends StatefulWidget {
   const TesstScreen({Key? key}) : super(key: key);
@@ -136,7 +137,7 @@ class _TesstScreenState extends State<TesstScreen> {
           //           )),
         ],
       ),
-      bottomNavigationBar: const AdBannerModels(),
+      bottomNavigationBar: const AdmobHome(),
     );
   }
 }

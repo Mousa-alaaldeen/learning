@@ -61,5 +61,4 @@ class _AdBannerModelsState extends State<AdBannerModels> {
       height: _adSize.height.toDouble(),
     );
   }
-  
 }
